@@ -7,6 +7,7 @@ sap.ui.controller("scheduleline.Test", {
 */
 	onInit: function() {
 		console.log("Test");
+		console.log("Test");
 	},
 
 /**
