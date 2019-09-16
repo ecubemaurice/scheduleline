@@ -1,0 +1,267 @@
+{
+    "d": {
+        "results": [
+            {
+                "__metadata": {
+                    "id": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.010999',Day=datetime'2016-07-23T00%3A00%3A00')",
+                    "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.010999',Day=datetime'2016-07-23T00%3A00%3A00')",
+                    "type": "ZPSGW00549_ZCPJD1_SRV.Project"
+                },
+                "ProjectNo": "6011.010999",
+                "Day": "/Date(1469232000000)/",
+                "ForemanNo": "00000000",
+                "FlagFavorite": true,
+                "ProjectName": "ZCPJT4 Test",
+                "TotalCost": "0.00",
+                "NumReports": 0,
+                "ExistingData": 0,
+                "StatNonInteg": 0,
+                "StatInProg": 0,
+                "StatError": 0,
+                "StatOk": 0,
+                "StatLock": 0,
+                "ProjToQuantity": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.010999',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToQuantity"
+                    }
+                },
+                "ProjToTemporary": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.010999',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToTemporary"
+                    }
+                },
+                "ProjToInternal": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.010999',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToInternal"
+                    }
+                },
+                "ProjToSubContr": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.010999',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToSubContr"
+                    }
+                },
+                "ProjToMaterial": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.010999',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToMaterial"
+                    }
+                },
+                "ProjToEquipment": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.010999',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToEquipment"
+                    }
+                },
+                "ProjToRental": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.010999',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToRental"
+                    }
+                },
+                "ProjToLaborBonus": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.010999',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToLaborBonus"
+                    }
+                },
+                "ProjToLabor": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.010999',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToLabor"
+                    }
+                }
+            },
+            {
+                "__metadata": {
+                    "id": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')",
+                    "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')",
+                    "type": "ZPSGW00549_ZCPJD1_SRV.Project"
+                },
+                "ProjectNo": "6011.VPSXX1",
+                "Day": "/Date(1469232000000)/",
+                "ForemanNo": "00000000",
+                "FlagFavorite": true,
+                "ProjectName": "Cost Object",
+                "TotalCost": "0.00",
+                "NumReports": 0,
+                "ExistingData": 0,
+                "StatNonInteg": 0,
+                "StatInProg": 0,
+                "StatError": 0,
+                "StatOk": 0,
+                "StatLock": 0,
+                "ProjToQuantity": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToQuantity"
+                    }
+                },
+                "ProjToTemporary": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToTemporary"
+                    }
+                },
+                "ProjToInternal": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToInternal"
+                    }
+                },
+                "ProjToSubContr": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToSubContr"
+                    }
+                },
+                "ProjToMaterial": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToMaterial"
+                    }
+                },
+                "ProjToEquipment": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToEquipment"
+                    }
+                },
+                "ProjToRental": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToRental"
+                    }
+                },
+                "ProjToLaborBonus": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToLaborBonus"
+                    }
+                },
+                "ProjToLabor": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6011.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToLabor"
+                    }
+                }
+            },
+            {
+                "__metadata": {
+                    "id": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6901.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')",
+                    "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6901.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')",
+                    "type": "ZPSGW00549_ZCPJD1_SRV.Project"
+                },
+                "ProjectNo": "6901.VPSXX1",
+                "Day": "/Date(1469232000000)/",
+                "ForemanNo": "00000000",
+                "FlagFavorite": true,
+                "ProjectName": "NORTH VANCOUVER WO level 1",
+                "TotalCost": "0.00",
+                "NumReports": 0,
+                "ExistingData": 0,
+                "StatNonInteg": 0,
+                "StatInProg": 0,
+                "StatError": 0,
+                "StatOk": 0,
+                "StatLock": 0,
+                "ProjToQuantity": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6901.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToQuantity"
+                    }
+                },
+                "ProjToTemporary": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6901.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToTemporary"
+                    }
+                },
+                "ProjToInternal": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6901.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToInternal"
+                    }
+                },
+                "ProjToSubContr": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6901.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToSubContr"
+                    }
+                },
+                "ProjToMaterial": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6901.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToMaterial"
+                    }
+                },
+                "ProjToEquipment": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6901.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToEquipment"
+                    }
+                },
+                "ProjToRental": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6901.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToRental"
+                    }
+                },
+                "ProjToLaborBonus": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6901.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToLaborBonus"
+                    }
+                },
+                "ProjToLabor": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='6901.VPSXX1',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToLabor"
+                    }
+                }
+            },
+            
+            {
+                "__metadata": {
+                    "id": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00')",
+                    "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00')",
+                    "type": "ZPSGW00549_ZCPJD1_SRV.Project"
+                },
+                "ProjectNo": "9730.160001",
+                "Day": "/Date(1469232000000)/",
+                "ForemanNo": "00000000",
+                "FlagFavorite": true,
+                "ProjectName": "Test chantier Régina",
+                "TotalCost": "826.00",
+                "NumReports": 8,
+                "ExistingData": 7,
+                "StatNonInteg": 86,
+                "StatInProg": 0,
+                "StatError": 0,
+                "StatOk": 14,
+                "StatLock": 0,
+                "ProjToQuantity": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToQuantity"
+                    }
+                },
+                "ProjToTemporary": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToTemporary"
+                    }
+                },
+                "ProjToInternal": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToInternal"
+                    }
+                },
+                "ProjToSubContr": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToSubContr"
+                    }
+                },
+                "ProjToMaterial": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToMaterial"
+                    }
+                },
+                "ProjToEquipment": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToEquipment"
+                    }
+                },
+                "ProjToRental": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToRental"
+                    }
+                },
+                "ProjToLaborBonus": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToLaborBonus"
+                    }
+                },
+                "ProjToLabor": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/ProjectSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00')/ProjToLabor"
+                    }
+                }
+            }
+        ]
+    }
+}

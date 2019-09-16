@@ -1,0 +1,690 @@
+/*======================================================================*/
+/*==  E~CUBE                                                          ==*/
+/*==------------------------------------------------------------------==*/
+/*==  AUTHOR             : Jean-Pierre Jerome (JPJ)                   ==*/
+/*==  DATE               : 13.08.2019                                 ==*/
+/*==  GAPID              : G01.001.05                                 ==*/
+/*==------------------------------------------------------------------==*/
+/*==  DESCRIPTION        : SR 622921 – A FIORI front end app for      ==*/
+/*==                       labor, temporary workers, equipment,       ==*/
+/*==                       equipments, supplies, subcontracting,      ==*/
+/*==                       production quantities                      ==*/
+/*==                       COPY of ZCPJD1 – DEV 00549 from KHEOPS     ==*/
+/*======================================================================*/
+/*== MODIFICATIONS  HISTORY                                           ==*/
+/*======================================================================*/
+/*== DATE        AUTHOR         SR NUM       IDEN.   TRANS. REQ       ==*/
+/*==------------------------------------------------------------------==*/
+/*   23.08.2019  JPJEROME       622921       JPJ      TR XXXXXXXXXX     */
+/*======================================================================*/
+.mainWrapper .sapMSticky>.sapMTB-Transparent-CTX, .sapMSticky>.sapMListHdrText{
+	background: #6D93BA;
+}
+
+/* .mainWrapper .customHeaderControl {
+	padding-top: 8px;
+} */
+
+.mainWrapper .myProjLabel {
+	margin-left: 10px;
+}
+
+.mainWrapper .sapMPanelContent:not (.sapMPanelBGTransparent ) {
+	padding-top: 5px;
+}
+
+/* Header Project */
+.mainWrapper .customSubHeaderBackground {
+	background-color: #6D93BA !important;
+}
+
+.mainWrapper .customHomePanelTitle {
+	color: #ffffff !important;
+	font-size: 18px !important;
+	font-weight: normal !important;
+	padding-left: 4px;
+}
+
+.mainWrapper .customHeaderTextColor {
+	color: #ffffff !important;
+	font-size: 12px;
+}
+
+.sapMTB {
+	border-bottom: none;
+}
+
+.mainWrapper .customLabelReport {
+	background: #ffffff !important;
+	color: #333333 !important;
+	height: 25px !important;
+	padding-top: 0px;
+	margin-top: 2px;
+}
+
+.mainWrapper .customLabel {
+	background: #c7c7c7 !important;
+	color: #5e5e5e !important;
+	height: 15px;
+	padding: 5px;
+	margin-top: 2px;
+}
+
+.mainWrapper .customHeaderToolbar {
+	margin-top: 10px;
+}
+
+
+.mainWrapper .customFilterButton .sapMBtnInner {
+	background: #00458A;
+	border-color: #00458A;
+	color: #ffffff;
+	font-size: 12px;
+}
+
+.mainWrapper .customFilterButton.sapMBtn:hover>.sapMBtnHoverable {
+	background: #00458A;
+}
+
+.mainWrapper .customFlagAllButton .sapMBtnInner {
+	background: #00458A;
+	border-color: #00458A;
+	color: #ffffff;
+	font-size: 12px;
+}
+
+.mainWrapper .customFlagAllButton.sapMBtn:hover>.sapMBtnHoverable {
+	background: #00458A;
+}
+
+.sapMBtnText>.sapMBtnIcon {
+	color: #ffffff;
+}
+
+
+/* Changing icon of search field*/
+.mySelectForeman .sapMSFS:after {
+	content: "\e1e2";
+}
+
+input[type="text"]:disabled {
+	background: #dddddd;
+}
+
+/* Removing the background color of the favorite button on hovering state*/
+.mainWrapper .myFavBtn .sapMBtnHoverable {
+	background-color: transparent !important;
+	border-color: transparent !important;
+}
+
+.mainWrapper .myFavBtn .sapMBtnIcon {
+	color: grey !important;
+	padding: 0 13px;
+	background-color: transparent !important;
+}
+
+/* Changing the color of an icon inside the favorite button on pressed state*/
+.mainWrapper .myPressedFavBtn .sapMToggleBtnPressed .sapMBtnIcon {
+	color: #e78c07 !important;
+	background-color: transparent !important;
+}
+
+.mainWrapper .myPressedFavBtn .sapMBtnInner.sapMToggleBtnPressed {
+    background-color: transparent !important;
+	border-color: transparent !important;
+}
+
+.mainWrapper .myProjName {
+	font-size: 16px;
+	width: 100%;
+	height: 20px;
+	max-width: 215px;
+}
+
+/* Icon Tab Bar */
+.mainWrapper .sapMITH {
+	background-color: #ffffff;
+	box-shadow: none;
+	border-bottom: 0.5px solid #d1e0ee;
+}
+
+.mainWrapper .sapMITBHead {
+	margin: 0px;
+}
+
+.mainWrapper .sapMPanelContent {
+    padding: 0; 
+    overflow: hidden;
+}
+
+/* Increasing the space by increasing the margin between the icon filters of the tab bar*/
+.mainWrapper .myIconTabBar .sapMITBFilter {
+	margin: 1px 1.45rem 0 0 !important;
+	width: 120px;
+}
+
+.sapMITBItem {
+	text-align: -webkit-auto;
+}
+
+.mainWrapper .sapMITBContent {
+	border-bottom: none;
+}
+
+/************************CHANGING COLOR OF ICON IN ICON TAB FILTER**********************************/
+/* Changing the default color of the icon of one of the icon filters*/
+.mainWrapper .sapMITBFilterDefault.sapMITBFilterIcon.myIconTabFilter {
+	color: #e20026;
+}
+
+/* Changing the color of the icon of one of the icon filters when it is pressed*/
+.mainWrapper .sapMITBSelected .sapMITBFilterDefault.myIconTabFilter {
+	background: #6d93ba;
+	color: #ffffff;
+}
+
+/* Adding a colored and rounded border to a button in a toolbar: by default the border is invisible and square*/
+.mainWrapper .mySortBtn .sapMBtnInner {
+	border-color: #ababab !important;
+	border-radius: 0.2rem;
+}
+
+.mainWrapper .myBtn .sapMBtnInner {
+	font-size: 11px;
+}
+
+.mainWrapper .myFixFlex {
+	border: 0.5px solid #DCDCDC;
+	padding: 5px;
+}
+
+/* Removing the border and background color of the lock button so its icon does not appear like a button*/
+.mainWrapper .myLockBtn .sapMBtnInner {
+	border: none !important;
+	margin-left: 0.125rem;
+	background-color: transparent;
+}
+
+/* Removing the border and background color of the flag button so its icon does not appear like a button*/
+.mainWrapper .myFlagBtn .sapMBtnInner {
+	border: none !important;
+	margin-left: 0.125rem;
+	background-color: transparent;
+}
+
+/* Changing the color of an icon inside the flag button */
+.mainWrapper .myFlagBtn .sapMBtnIcon {
+	color: #ababab !important;
+}
+
+/* Changing the color of an icon inside the lock button */
+.mainWrapper .myLockBtn .sapMBtnIcon {
+	color: #ababab !important;
+}
+
+/* Removing the background color of the flag button on hovering state*/
+.mainWrapper .myFlagBtn .sapMBtnHoverable {
+	background-color: transparent !important;
+}
+
+/* Removing the background color of the lock button on hovering state*/
+.mainWrapper .myLockBtn .sapMBtnHoverable {
+	background-color: transparent !important;
+}
+
+/* Changing the color of an icon inside the flag button on pressed state*/
+.mainWrapper .myPressedFlagBtn .sapMToggleBtnPressed .sapMBtnIcon {
+	color: green !important;
+}
+
+/* Changing the color of an icon inside the lock button on pressed state*/
+.mainWrapper .myPressedLockBtn .sapMToggleBtnPressed .sapMBtnIcon {
+	color: #346187 !important;
+}
+
+.mainWrapper .myMasterBigFont .sapMText {
+	/* font-size: 120% !important; */
+}
+
+/*master page*/
+.projectContent .myMasterBigFont {
+	font-size: 15px;
+	width: auto;
+	font-weight: bold;
+}
+
+.projectContent .sapMTextBreakWord .myMasterBigFont{
+	word-break: none !important;
+}
+
+.customHeader .myMasterMediumFont {
+	font-size: 13px;
+	width: auto;
+	font-weight: bold;
+}
+
+.projectContent .myMasterSmallFont {
+	font-size: 12px;
+	width: auto;
+}
+
+.myMasterLargeFont {
+ 	font-size: 16px;
+	width: auto;
+ }
+ 
+ .myMasterXLargeFont {
+ 	font-size: 20px;
+	width: auto;
+ }
+
+/* Footer */
+.projectContent .myCustomFooter {
+       background-color: #6D93BA !important;
+       /* padding: 10px 0; */
+       /* height: 30px; */
+}
+
+.projectContent .myCustomFooter.sapContrast.sapMIBar-CTX.sapMFooter-CTX, .sapContrast .sapMIBar-CTX.sapMFooter-CTX {
+	border-top: none;
+}
+
+.projectContent .myCustomFooter.sapContrast.sapMBar, .sapContrast .sapMBar {
+	box-shadow: none;
+}
+
+.projectContent .myCustomIntegrateBtn {
+	background: #00458A;
+	border-color: #00458A;
+	border-radius: 4px;
+	/* margin-left: 10px; */
+}
+
+.projectContent .myCustomIntegrateBtn.sapMBtn:hover>.sapMBtnHoverable {
+	background-color: #00458A;
+    color: white;
+}
+
+.projectContent .sapContrast.sapMIBar-CTX .sapMBtnInner, .sapContrast .sapMIBar-CTX .sapMBtnInner{
+	color: #fafafa;
+}
+
+
+.projectContent .myCustomPreviewBtn {
+	background: #E20026;
+	border-color: #E20026;
+	border-radius: 4px;
+}
+
+.projectContent .myCustomPreviewBtn.sapMBtn:hover>.sapMBtnHoverable {
+	background-color: #E20026;
+    color: white;
+}
+
+
+.projectContent .myCustomPreviewBtn .sapContrast.sapMBtnInner, .sapContrast .sapMBtnInner {
+	text-shadow: none;
+} 
+
+.customMasterHeader {
+       border-top: 1px solid #d6d6d6;
+       border-left: 1px solid #d6d6d6;
+}
+
+.customMasterFooter {
+    width:100%;
+    background-color: #427cac !important;
+    border: none !important;
+    border-radius: 0 0 5px 5px !important;
+} 
+
+.detailHeader .sapMIBar.sapMHeader-CTX {
+	background-color: #ffffff !important;
+	box-shadow:none;
+	height:0px;
+}   
+
+/* Preview Footer */
+.projectContent .myCustomPreviewFooterBtn {
+	background: #00458A;
+	border-color: #00458A;
+	border-radius: 4px;
+	margin-left: 10px;
+}
+
+.projectContent .myCustomPreviewFooterBtn.sapMBtn:hover>.sapMBtnHoverable {
+	background-color: #00458A;
+    color: white;
+}
+
+.projectContent .myCustomPreviewIntBtn {
+	background: #E20026;
+	border-color: #E20026;
+	border-radius: 4px;
+}
+
+.projectContent .myCustomPreviewIntBtn.sapMBtn:hover>.sapMBtnHoverable {
+	background-color: #E20026;
+    color: white;
+}
+
+.customFilterPreviewBtn .sapMBtnInner {
+	margin-top: 3px;
+}
+
+/* Detail Icon Tab */
+ .sapMITBInLine.sapMITBTextOnly>.sapMITBVertical.sapMITBFilter>.sapMITBText + .sapMITBContentArrow {
+	width: 60px;
+}
+
+.detailIconTab .sapMPanelContent:not(.sapMPanelBGTransparent){
+	border-bottom: none;
+}
+
+/*Detail table*/
+.costCodeTable{
+	/* border-left: 1px solid #e2e2e2;
+	border-bottom: 1px solid #e2e2e2;
+	border-right: 1px solid #e2e2e2; */
+	border: 1px solid #e2e2e2;
+}
+
+/* .sapMListTblHighlightCol + .sapMListTblHeaderCell, .sapMListTblHighlightCell + .sapMListTblCell{
+	padding-left: 10px;
+}  */
+
+.customTable{
+	border: 1px solid #e2e2e2;
+	border-bottom: none;
+} 
+
+.customTable .sapMListTbl th {
+	background-color: #00458a !important;
+}
+
+.customTable .sapMListTbl .sapMText {
+	color: #fafafa;
+}
+
+ .customTableText .sapMText {
+	color: #333333 !important;
+}
+
+.customDetailsTable .sapMText[data-disabled] {
+	color: #666666 !important;
+}
+
+.customDetailsTable .sapMListTblRow[data-disabled] {
+	background-color: #ebebeb !important; 
+	font-style: italic;    
+    font-weight: lighter !important; 
+}
+
+.customMasterList .sapMText[data-disabled] {
+	color: #666666 !important;
+}
+
+.customMasterList .sapMLIB[data-disabled] {
+	background-color: #ebebeb !important; 
+	font-style: italic;    
+    font-weight: lighter !important; 
+}
+
+ .customTable .customText {
+	color: #333333 !important;
+} 
+
+/*.projectContent .customMasterFooter {
+       width:100%;
+       background-color: #eaebee;
+}*/
+
+.customItemDisabledBkgnd {
+	background-color: #ebebeb !important; 	 
+	/*background-color: #f7f7f7 !important;*/
+	font-style: italic;    
+    font-weight: lighter !important;  
+}
+
+.customItemDisabledFont {	
+    color: #666666 !important;
+}
+
+/* Dialog form */
+
+/* .sapMInputBaseContentWrapper {
+	border-radius: 10px;
+}
+
+.sapMInputBase, .sapMInputBaseInner {
+	border-radius: 10px;
+} */
+.addFormInput .sapMInputBase, .sapMInputBaseInner, .sapMInputBasePlaceholder{
+	height: 23px;
+	padding: 0 0.35rem;
+}
+/*
+ .sapMInputDescription>span{
+	line-height: 2 !important;
+}*/
+
+.addFormInput {
+	height: 26px;
+	margin: 8px 10px 0 10px;
+}
+
+.addFormInput .sapUiIcon{
+	line-height: 1.55rem !important;
+} 
+
+.addFormInput .sapMInputBaseIconContainer{
+	width: 32px;
+}
+
+.addFormInput .sapMTimePicker.sapMTPInputActive .sapUiIcon{
+	background-color: #ffffff;
+	color: #427cac;
+}
+
+.sapMInputBaseState .sapMInputValHelp>.sapMInputValHelpInner{
+	width: 21px;
+	height: 1.25rem;
+}
+
+.addFormLabel {
+	padding-top: 10px;
+}
+
+/* .addFormLabelTime {
+	padding-top: 10px;
+}  */
+
+#labordet {
+	overflow-y: visible;
+	overflow-x: visible;
+}
+
+.sapUiBody ::-webkit-scrollbar {
+    width: 8px !important;
+    height: 20px !important;
+}
+
+.customLink {
+	/* color: #0070b1 !important; */
+	text-decoration: underline;
+}
+
+.sapMLIBFocusable:focus{
+	outline: 1px solid #91c8f6;
+}
+
+:focus>[class*='sapM'] {
+  outline-style: none !important ;
+}
+
+/* Preview page */
+.cutomTextColorPreview {
+	color: #ffffff !important;
+}
+
+.customTotalCost {
+	padding-left: 18px;
+}
+
+.previewNavBtn .sapMBtnIcon {
+	color: #346187 !important;
+}
+
+.customPreviewHeaderTitle {
+	color: #ffffff !important;
+	font-size: 15px !important;
+	font-weight: normal !important;
+}
+
+.customPreviewFont {
+	font-size: 15px;
+	font-weight: bold;
+}
+
+.inlineList ul {
+	display: flex !important;
+	flex-wrap: wrap !important;
+	justify-content: flex-start !important;
+	align-items: start;
+}
+
+.inlineList .sapMCLI[data-disabled] {
+	background-color: #f7f7f7 !important; 
+	font-style: italic;    
+    font-weight: lighter !important; 
+    color: #666666 !important;
+}
+
+.myFixFlex .sapMLabel[data-disabled] {
+	color: #666666 !important;
+}
+
+.customVHInput .sapMInputBaseInner{
+	width: 80%;
+	height: 30px;
+}
+
+.customVHMInput.sapMInput.sapMInputBase.sapMInputBaseWidthPadding.sapMInputVH.sapMMultiInput {
+	width: 80% !important;
+}
+
+.customVHMultiInput .sapMInputBaseInner{
+	width: 100%;
+	height: 30px;
+}
+
+.customVHMultiInput .sapMInputValHelp {
+	top: 0.01rem !important;
+    right: 0rem !important;
+}
+
+.customVHMultiInput .sapMInputValHelpInner {
+	height: 2rem !important;
+}
+
+.projNoFontSize .sapMText {
+	font-size: 17px;
+}
+.customMessage {
+	text-align: center;
+}
+
+.customCommentMarker .sapMBtnInner.sapMBtnText.sapMBtnIconFirst{
+	padding-left: 1.5rem !important;
+},
+
+.customCommentMarker .sapMBtnInner.sapMBtnText.sapMBtnIconFirst .sapMBtnContent{
+    line-height: 1.00rem !important;
+}
+
+/*Papyrus summary line screen*/
+.customPapyrusHeaderTextColor {
+	color: #dddddd;
+	font-size: 12px;
+}
+
+.customPapyrusDetailsFontSize {
+	font-size: 12px;
+}
+
+.summaryPapyrusHeader {
+	background-color: #6D93BA !important;
+}
+
+.customPapyrusHeaderText {
+	padding-bottom: 62px;
+}
+
+.customPapyrusDetText {
+	padding-bottom: 60px;
+}
+
+/*Papyrus summary line screen Rental*/
+.customPapyrusDetRental {
+	padding-bottom: 115px;
+}
+
+/*Papyrus summary line screen Equipment*/
+.customPapyrusDetEquip {
+	padding-bottom: 190px;
+}
+
+.customCheckBox {
+	padding-right: 105px;
+}
+
+.mainWrapper .synthesisBtn  {
+ 	width: 50px
+}  
+
+.customStatusTable .sapMListTblRow[data-disabled] {
+	background-color: #ebebeb !important; 
+}
+
+/* SR 554223 */
+@media print {
+	/* .noPrint {
+        display: none !important;
+    }  */
+    
+    /* fix overflow scrolling */
+    * {
+        overflow-x: visible !important; 
+        overflow-y: visible !important;
+    }
+    
+    .sapMBar {
+    	display: none !important;
+    }
+    
+    .printHeader{
+    	display: none !important;
+    }
+    
+    .printButton{
+    	display: none !important;
+    }
+    
+    .sapUiBLy {
+    	display: none !important;
+    }
+}
+
+.projNoFontSize .sapMObjectIdentifierTopRow {
+	height : 2px;
+}
+
+.stckBtn {
+	background-color: transparent !important;
+	border-color: transparent !important;
+}
+
+.stckBtn .sapMBtnInner {
+	background-color: #f78d03;
+}
+

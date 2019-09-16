@@ -1,0 +1,191 @@
+<!--======================================================================-->
+<!--==  E~CUBE                                                          ==-->
+<!--==******************************************************************==-->
+<!--==  AUTHOR             : Jean-Pierre Jerome (JPJ)                   ==-->
+<!--==  DATE               : 13.08.2019                                 ==-->
+<!--==  GAPID              : G01.001.05                                 ==-->
+<!--==******************************************************************==-->
+<!--==  DESCRIPTION        : SR 622921 – A FIORI front end app for      ==-->
+<!--==                       labor, temporary workers, equipment,       ==-->
+<!--==                       equipments, supplies, subcontracting,      ==-->
+<!--==                       production quantities                      ==-->
+<!--==                       COPY of ZCPJD1 – DEV 00549 from KHEOPS     ==-->
+<!--======================================================================-->
+<!--== MODIFICATIONS  HISTORY                                           ==-->
+<!--======================================================================-->
+<!--== DATE        AUTHOR         SR NUM       IDEN.   TRANS. REQ       ==-->
+<!--==******************************************************************==-->
+<!--   23.08.2019  JPJEROME       622921       JPJ      TR XXXXXXXXXX     -->
+<!--======================================================================-->
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<Dialog id="rentalMasterAdd" class="masterAddDialog"
+		title="{Form>/title}" draggable="true">
+		<content>
+			<f:SimpleForm id="masterAddForm" width="415px"
+				editable="true">
+				<f:content>
+					<VBox alignItems="End">
+						<HBox alignItems="Center">
+							<Label text="{i18n>materialNo}" labelFor="idMaterialNo"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idMaterialNo" width="200px"
+								value="{Input>/MaterialNo}"
+								valueHelpRequest="onRequestMaterialSpec" showValueHelp="true"
+								required="true" class="addFormInput" editable="true"
+								liveChange="onInputChange" submit="onSubmitMaterialNo" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>materialDesc}" labelFor="idMaterialDesc"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idMaterialDesc" width="200px"
+								value="{Input>/MaterialDesc}" class="addFormInput"
+								editable="{= ${Input>/PurchaseDoc} !== '' ? false : true}"
+								liveChange="onInputChange" required="true" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>supNo}" labelFor="idSupplierNo"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idSupplierNo" width="200px"
+								value="{Input>/SupplierNo}" required="true"
+								valueHelpRequest="onRequestSupplier" showValueHelp="true"
+								class="addFormInput" editable="true" liveChange="onInputChange"
+								submit="onSubmitSupplier" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>supName}" labelFor="idSupplierName"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idSupplierName" width="200px"
+								value="{Input>/SupplierName}" class="addFormInput"
+								editable="false" liveChange="onInputChange" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>UnitPrice}" labelFor="idUnitPrice"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idUnitPrice" required="true"
+								value="{Input>/Price}" width="200px" type="Number"
+								class="addFormInput" editable="true" liveChange="onInputChange"
+								change="onAfterInputChanged" />
+						</HBox>
+						<HBox class="sapUiLargeMarginEnd customCheckBox"
+							alignItems="Center">
+							<Label text="{i18n>fuelIncluded}" labelFor="idFuelIncluded"
+								class="addFormLabelTime sapUiMediumMarginEnd" />
+							<CheckBox id="idFuelIncluded"
+								selected="{= ${Input>/FuelFlag} === 'X' ? true : ${InScreenFilters>/ProjectSet/Country} !== 'QC' &amp;&amp; ${Form>/mode} === 'add' ? true : false }"
+								editable="true" select="onSelectFuelFlag" class="sapUiNoMargin" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>purchasingOrder}"
+								labelFor="idPurchasingDoc"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idPurchasingDoc" width="200px"
+								value="{Input>/PurchaseDoc}"
+								valueHelpRequest="onRequestPurchaseDoc" showValueHelp="true"
+								class="addFormInput" editable="true" liveChange="onInputChange"
+								required="true" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>item}" labelFor="idItem"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idItem" width="200px" value="{Input>/Item}"
+								valueHelpRequest="onRequestItem" showValueHelp="true"
+								class="addFormInput" editable="true" liveChange="onInputChange"
+								submit="onSubmitItem" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>agreement}" labelFor="idAgreement"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idAgreement" width="200px"
+								value="{Input>/Agreement}" class="addFormInput"
+								showValueHelp="true" editable="true" liveChange="onInputChange"
+								valueHelpRequest="onRequestAgreement" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>agreementItem}"
+								labelFor="idAgreementItem"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idAgreementItem" width="200px"
+								value="{Input>/AgreementItem}" class="addFormInput"
+								editable="true" liveChange="onInputChange"
+								valueHelpRequest="onRequestAgrmtItem" showValueHelp="true" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>vendorMatNo}" labelFor="idVendorMatNo"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idVendorMatNo" width="200px"
+								value="{Input>/VendorMatNo}" class="addFormInput"
+								editable="true" liveChange="onInputChange" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>costCode}" labelFor="idCostCode"
+								visible="{= ${Form>/mode} === 'add'}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idCostCode" width="200px"
+								value="{Input>/CostCode}" valueHelpRequest="onRequestCostCode"
+								showValueHelp="true"
+								required="{= ${Input>/EquipmentStat} === '' || ${Input>/EquipmentStat} === 'N' || ${Input>/EquipmentStat} === 'W'}"
+								class="addFormInput" editable="true" liveChange="onInputChange"
+								visible="{= ${Form>/mode} === 'add'}" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>quantity}" labelFor="idQuantity"
+								visible="{= ${Form>/mode} === 'add'}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idQuantity" width="200px"
+								value="{Input>/TotQtyOperated}" type="Number"
+								class="addFormInput" editable="true" liveChange="onInputChange"
+								visible="{= ${Form>/mode} === 'add'}" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>status}" labelFor="idStatus"
+								visible="{= ${Form>/mode} === 'add'}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idStatus" width="200px" class="addFormInput"
+								value="{Input>/EquipmentStat}"
+								visible="{= ${Form>/mode} === 'add'}" liveChange="onInputChange"
+								change="onAfterInputChanged"
+								valueHelpRequest="onRequestEquipStatus" showValueHelp="true" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>delNote}" labelFor="idDelNote"
+								class="addFormLabel sapUiSmallMarginEnd"
+								visible="{= ${Form>/mode} === 'add'}" />
+							<Input id="idDelNote" width="200px" class="addFormInput"
+								value="{Input>/DeliveryNoteNo}" liveChange="onInputChange"
+								change="onAfterInputChanged"
+								visible="{= ${Form>/mode} === 'add'}" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>recPersonNo}" labelFor="idRecPersonNo"
+								visible="{= ${Form>/mode} === 'add'}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idRecPersonNo" width="200px"
+								valueHelpRequest="onRequestPersonnel" showValueHelp="true"
+								required="true" class="addFormInput" value="{Input>/ForemanNo}"
+								visible="{= ${Form>/mode} === 'add'}" editable="true"
+								liveChange="onInputChange" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>version}" labelFor="idVersion"
+								visible="{= ${Form>/mode} === 'add'}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idVersion" width="200px" class="addFormInput"
+								value="{Input>/Version}" editable="true"
+								visible="{= ${Form>/mode} === 'add'}" liveChange="onInputChange" />
+						</HBox>
+					</VBox>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button id="saveRental" text="{i18n>save}"
+				press="onPressRentalSave" />
+		</beginButton>
+		<endButton>
+			<Button id="cancelRental" text="{i18n>cancel}"
+				press="handleClose" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

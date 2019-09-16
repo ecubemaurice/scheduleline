@@ -1,0 +1,144 @@
+<!--======================================================================-->
+<!--==  E~CUBE                                                          ==-->
+<!--==******************************************************************==-->
+<!--==  AUTHOR             : Jean-Pierre Jerome (JPJ)                   ==-->
+<!--==  DATE               : 13.08.2019                                 ==-->
+<!--==  GAPID              : G01.001.05                                 ==-->
+<!--==******************************************************************==-->
+<!--==  DESCRIPTION        : SR 622921 – A FIORI front end app for      ==-->
+<!--==                       labor, temporary workers, equipment,       ==-->
+<!--==                       equipments, supplies, subcontracting,      ==-->
+<!--==                       production quantities                      ==-->
+<!--==                       COPY of ZCPJD1 – DEV 00549 from KHEOPS     ==-->
+<!--======================================================================-->
+<!--== MODIFICATIONS  HISTORY                                           ==-->
+<!--======================================================================-->
+<!--== DATE        AUTHOR         SR NUM       IDEN.   TRANS. REQ       ==-->
+<!--==******************************************************************==-->
+<!--   23.08.2019  JPJEROME       622921       JPJ      TR XXXXXXXXXX     -->
+<!--======================================================================-->
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="internalPapyrusDialog" contentWidth="800px"
+		contentHeight="auto" title="{i18n>internalDetails}">
+		<Panel class="summaryPapyrusHeader" width="100%">
+			<content>
+				<Toolbar height="125px">
+					<VBox>
+						<VBox class="sapUiSmallMargin">
+							<Label text="{i18n>papyrusWbsElement}"
+								labelFor="papyrusWbsElementLabel"
+								class="myMasterSmallFont customPapyrusHeaderTextColor">
+							</Label>
+							<Text text="{ProjectName}"
+								class="myMasterLargeFont cutomTextColorPreview">
+							</Text>
+						</VBox>
+						<VBox class="sapUiSmallMargin">
+							<Label text="{i18n>OneForemanTxt}"
+								labelFor="foremanPaprusLabel"
+								class="myMasterSmallFont customPapyrusHeaderTextColor">
+							</Label>
+							<Label text="{ForemanName}"
+								labelFor="foremanNamePapyrusLabel"
+								class="myMasterLargeFont cutomTextColorPreview">
+							</Label>
+							<Text text="{ForemanNo}"
+								class="myMasterMediumFont cutomTextColorPreview">
+							</Text>
+						</VBox>
+					</VBox>
+					<ToolbarSpacer />
+					<VBox class="sapUiSmallMargin">
+						<Text
+							text="{path: 'Day',  formatter: '.formatter.formatDisplayDay'}"
+							class="myMasterSmallFont cutomTextColorPreview sapUiLargeMarginBottom customPapyrusHeaderText" />
+					</VBox>
+				</Toolbar>
+			</content>
+		</Panel>
+		<Panel width="100%">
+			<content>
+				<Toolbar height="100%">
+					<VBox width="100%">
+						<VBox class="sapUiTinyMargin">
+							<Label text="{i18n>Material}"
+								labelFor="papyrusMaterialLabel"
+								class="myMasterSmallFont customPapyrusDetailsFontSize">
+							</Label>
+							<Text text="{MaterialDesc}" class="myMasterLargeFont">
+							</Text>
+							<Text text="{MaterialNo}" class="myMasterMediumFont">
+							</Text>
+						</VBox>
+						<VBox class="sapUiTinyMargin">
+							<Label text="{i18n>Supplier}"
+								labelFor="supplierPaprusLabel"
+								class="myMasterSmallFont customPapyrusDetailsFontSize">
+							</Label>
+							<Text text="{SupplierName}" class="myMasterMediumFont">
+							</Text>
+							<Text text="{SupplierNo}" class="myMasterMediumFont">
+							</Text>
+						</VBox>
+						<HBox>
+							<VBox class="sapUiTinyMargin sapUiMediumMarginEnd">
+								<Label text="{i18n>purchasingDoc}"
+									labelFor="purchasingDocPaprusLabel"
+									class="myMasterSmallFont customPapyrusDetailsFontSize">
+								</Label>
+								<Text text="{PurchaseDoc}" class="myMasterMediumFont">
+								</Text>
+							</VBox>
+							<VBox class="sapUiTinyMargin">
+								<Label text="{i18n>item}" labelFor="itemPaprusLabel"
+									class="myMasterSmallFont customPapyrusDetailsFontSize ">
+								</Label>
+								<Text text="{Item}" class="myMasterMediumFont">
+								</Text>
+							</VBox>
+						</HBox>
+						<VBox class="sapUiTinyMargin">
+							<Label text="{i18n>delNote}" labelFor="delNotePaprusLabel"
+								class="myMasterSmallFont customPapyrusDetailsFontSize ">
+							</Label>
+							<Text text="{DeliveryNoteNo}" class="myMasterMediumFont">
+							</Text>
+						</VBox>
+						<VBox class="sapUiTinyMargin">
+							<Label text="{i18n>price}" labelFor="pricePaprusLabel"
+								class="myMasterSmallFont customPapyrusDetailsFontSize ">
+							</Label>
+							<Text text="{Price} {Currency}" class="myMasterMediumFont">
+							</Text>
+						</VBox>
+					</VBox>
+					<ToolbarSpacer />
+					<VBox width="100%"
+						class="sapUiLargeMarginBottom customPapyrusDetRental">
+						<VBox class="sapUiSmallMargin">
+							<Label
+								text="{i18n>Qty} ({i18n>on} {path: 'Day',  formatter: '.formatter.formatDisplayDate'})"
+								labelFor="papyrusQuantityLabel"
+								class="myMasterSmallFont customPapyrusDetailsFontSize">
+							</Label>
+							<Text text="{Quantity} {Unit}" class="myMasterMediumFont">
+							</Text>
+						</VBox>
+						<VBox class="sapUiSmallMargin">
+							<Label text="{i18n>comment}" labelFor="commentPapyrusLabel"
+								class="myMasterSmallFont customPapyrusDetailsFontSize">
+							</Label>
+							<Text text="{Comments}" class="myMasterMediumFont">
+							</Text>
+						</VBox>
+					</VBox>
+				</Toolbar>
+			</content>
+		</Panel>
+		<endButton>
+			<Button id="closePapyrusSummary" text="{i18n>close}"
+				press="handleClosePapyrusSummary" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<ResponsivePopover id="sDetailsPopover"
+		showHeader="false" contentWidth="400px" contentHeight="auto"
+		showArrow="true" placement="Bottom">
+		<content>
+			<FlexBox>
+				<items>
+					<Panel backgroundDesign="Transparent" id="laborInt">
+						<content>
+							<VBox>
+								<Label text="{i18n>integration}"
+									class="customIntegrationLabel" />
+								<ObjectAttribute
+									text="{User} on {path:'Date',formatter: '.formatter.formatDisplayDate'}"
+									editable="false"
+									class="sapUiSmallMarginBottom customIntegrationText" />
+							</VBox>
+							<VBox>
+								<Label text="{i18n>sapdoc}" class="customIntegrationLabel"
+									visible="{= ${CostCode}? true : ${EquipmentStat} !== '' ? true : ${EquipmentStat} !== 'N' ? true : ${EquipmentStat} !== 'W' ? true :
+										 ${Status} !== '' ? true : ${Status} !== 'N' ? true : ${Status} !== 'W' ? true : false}" />
+								<Link text="{SapDoc}" editable="false"
+									class="customText customLink" press="onPressSAPDocLink"
+									visible="{= ${CostCode}? true : ${EquipmentStat} !== '' ? true : ${EquipmentStat} !== 'N' ? true : ${EquipmentStat} !== 'W' ? true :
+										 ${Status} !== '' ? true : ${Status} !== 'N' ? true : ${Status} !== 'W' ? true : false}">
+								</Link>
+								<VBox>
+									<Label text="{i18n>message}"
+										class="customIntegrationLabel sapUiSmallMarginTop" />
+									<Text text="Display Error message text. Test"
+										class="customText" />
+								</VBox>
+							</VBox>
+						</content>
+					</Panel>
+				</items>
+			</FlexBox>
+		</content>
+	</ResponsivePopover>
+</core:FragmentDefinition>

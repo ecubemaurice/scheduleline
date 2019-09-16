@@ -1,0 +1,101 @@
+<!--======================================================================-->
+<!--==  E~CUBE                                                          ==-->
+<!--==******************************************************************==-->
+<!--==  AUTHOR             : Jean-Pierre Jerome (JPJ)                   ==-->
+<!--==  DATE               : 13.08.2019                                 ==-->
+<!--==  GAPID              : G01.001.05                                 ==-->
+<!--==******************************************************************==-->
+<!--==  DESCRIPTION        : SR 622921 – A FIORI front end app for      ==-->
+<!--==                       labor, temporary workers, equipment,       ==-->
+<!--==                       equipments, supplies, subcontracting,      ==-->
+<!--==                       production quantities                      ==-->
+<!--==                       COPY of ZCPJD1 – DEV 00549 from KHEOPS     ==-->
+<!--======================================================================-->
+<!--== MODIFICATIONS  HISTORY                                           ==-->
+<!--======================================================================-->
+<!--== DATE        AUTHOR         SR NUM       IDEN.   TRANS. REQ       ==-->
+<!--==******************************************************************==-->
+<!--   23.08.2019  JPJEROME       622921       JPJ      TR XXXXXXXXXX     -->
+<!--======================================================================-->
+<mvc:View
+	controllerName="zwo.ui.wks_rep.controller.quantity.QuantityMaster"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	busy="{QuantityView>/busy}"
+	busyIndicatorDelay="{QuantityView>/BusyDelay}">
+	<Page id="quantitymaster">
+		<customHeader>
+			<core:Fragment
+				fragmentName="zwo.ui.wks_rep.view.fragment.MasterHeader" type="XML" />
+		</customHeader>
+		<content>
+			<Panel class="sapUiNoMargin sapUiNoContentPadding">
+				<List id="masterList" class="customMasterList" items="{}"
+					updateStarted="onMasterListUpdating"
+					updateFinished="onMasterListUpdated">
+					<CustomListItem id="quantityList" type="Active"
+						press="onPressMasterItem"
+						highlight="{
+							path: 'IntStatus',
+							formatter: '.formatter.setMasterStatus'
+						}">
+						<customData>
+							<core:CustomData key="disabled" value="true"
+								writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+						</customData>
+						<HBox>
+							<VBox class="sapUiTinyMarginBegin sapUiSmallMarginTopBottom">
+								<CheckBox id="masterChkBox" select="onSelectMasterItem" />
+								<VBox>
+									<ToggleButton id="flagMasterBtn"
+										icon="sap-icon://flag" pressed="{FlagInt}" press="onPressFlag"
+										class="myFlagBtn myPressedFlagBtn sapUiSmallTinyBegin"
+										type="Transparent" visible="{= !${FlagLocked} }" />
+									<Button id="lockMasterBtn" icon="sap-icon://locked"
+										class="myLockBtn myPressedLockBtn sapUiSmallTinyBegin"
+										type="Transparent" visible="{= ${FlagLocked} }" />
+								</VBox>
+							</VBox>
+							<VBox width="175px"
+								class="sapUiTinyMarginBeginEnd sapUiSmallMarginTopBottom sapUiTinyMarginEnd">
+								<Text text="{CostCodeDes}" tooltip="{CostCodeDes}"
+									wrapping="false"
+									class="myMasterBigFont sapMSampleTextMaxLinesText">
+									<customData>
+										<core:CustomData key="disabled" value="true"
+											writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+									</customData>
+								</Text>
+								<Text text="{CostCode}" class="myMasterSmallFont">
+									<customData>
+										<core:CustomData key="disabled" value="true"
+											writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+									</customData>
+								</Text>
+							</VBox>
+							<VBox
+								class="sapUiSmallMarginTopBottom sapUiNoContentPadding sapUiTinyMarginBeginEnd"
+								justifyContent="Right" alignItems="End">
+								<Text text="{TotQuantity}" class="myMasterBigFont">
+									<customData>
+										<core:CustomData key="disabled" value="true"
+											writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+									</customData>
+								</Text>
+								<Text text="{Unit}" class="myMasterSmallFont">
+									<customData>
+										<core:CustomData key="disabled" value="true"
+											writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+									</customData>
+								</Text>
+							</VBox>
+						</HBox>
+					</CustomListItem>
+				</List>
+			</Panel>
+		</content>
+		<footer class="customMasterFooter">
+			<core:Fragment
+				fragmentName="zwo.ui.wks_rep.view.fragment.MasterFooter" type="XML" />
+		</footer>
+	</Page>
+</mvc:View>

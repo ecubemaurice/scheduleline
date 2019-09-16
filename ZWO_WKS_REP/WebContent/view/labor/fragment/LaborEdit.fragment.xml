@@ -1,0 +1,97 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<Dialog id="laborEdit" class="masterAddDialog"
+		title="{i18n>editPersonnel}">
+		<content>
+			<f:SimpleForm id="laborEditForm" editable="true">
+				<f:content>
+					<HBox>
+						<VBox alignItems="End" class="sapUiSmallMarginEnd">
+							<Label text="{i18n>personnelNo}" labelFor="idPersonnelNo"
+								class="sapUiTinyMarginTop addFormLabel" />
+							<Label text="{i18n>personnelName}"
+								labelFor="idPersonnelName" class="sapUiTinyMarginTop" />
+							<Label text="{i18n>unitNo}" labelFor="idUnitNo"
+								class="sapUiTinyMarginTop" />
+							<Label text="{i18n>unitName}" labelFor="idUnitName"
+								class="sapUiTinyMarginTopBottom addFormLabel" />
+							<Label text="{i18n>activityType}" labelFor="idActivityType"
+								class="sapUiTinyMarginTopBottom addFormLabel" />
+							<Label text="{i18n>UnitPrice}" labelFor="idUnitPrice"
+								class="sapUiTinyMarginTop addFormLabel" />
+							<Label text="{i18n>ccq}" labelFor="idCCQ"
+								class="sapUiTinyMarginTop addFormLabel"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}" />
+							<Label text="{i18n>rule}" labelFor="idRule"
+								class="sapUiTinyMarginTop addFormLabel"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}" />
+							<Label text="{i18n>workTime}"
+								labelFor="idWorkTime, idWorkTime2"
+								class="sapUiSmallMarginTopBottom addFormLabel"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}" />
+							<Label text="{i18n>breakTime}"
+								labelFor="idBreakTime, idBreakTime2"
+								class="sapUiTinyMarginTopBottom addFormLabel"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}" />
+							<Label text="{i18n>costCode}" labelFor="idCostCode"
+								class="sapUiTinyMarginTop addFormLabel" />
+						</VBox>
+						<VBox>
+							<Input id="idPersonnelNo" width="200px"
+								value="{labordet>EmployeeNo}" required="true" editable="true"
+								class="addFormInput" />
+							<Input id="idPersonnelName" width="200px" value=""
+								editable="true" class="addFormInput" />
+							<Input id="idUnitNo" width="200px" value="" required="true"
+								editable="false" class="addFormInput" />
+							<Input id="idUnitName" width="200px" value=""
+								editable="false" class="addFormInput" />
+							<Input id="idActivityType" width="200px"
+								value="{labordet>ActivityType}" required="true" editable="true"
+								class="addFormInput" />
+							<Input id="idUnitPrice" required="true" width="200px"
+								type="number" editable="true" class="addFormInput" />
+							<Input id="idCCQ" width="200px" value="" required="true"
+								editable="true" class="addFormInput"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}" />
+							<Input id="idRule" width="200px" value="" required="true"
+								editable="true" class="addFormInput"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}" />
+							<HBox alignItems="Center"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}">
+								<TimePicker id="idWorkTime" class="addFormInput"
+									value="" width="100px" required="true" editable="true"
+									valueFormat="HH:mm" displayFormat="HH:mm" placeholder="00:00" />
+								<Text text="{i18n>to}" class="sapUiTinyMarginBeginEnd" />
+								<TimePicker id="idWorkTime2" class="addFormInput"
+									value="" width="100px" required="true" editable="true"
+									valueFormat="HH:mm" displayFormat="HH:mm" placeholder="00:00" />
+							</HBox>
+							<HBox alignItems="Center"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}">
+								<TimePicker id="idBreakTime" class="addFormInput"
+									value="" width="100px" required="true" editable="true"
+									valueFormat="HH:mm" displayFormat="HH:mm" placeholder="00:00" />
+								<Text text="{i18n>to}" class="sapUiTinyMarginBeginEnd" />
+								<TimePicker id="idBreakTime2" class="addFormInput"
+									value="" width="100px" required="true" editable="true"
+									valueFormat="HH:mm" displayFormat="HH:mm" placeholder="00:00" />
+							</HBox>
+							<Input id="idCostCode" width="200px"
+								value="{labordet>CostCode}" required="true" editable="true"
+								class="addFormInput" />
+						</VBox>
+					</HBox>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button id="saveEditPersonnel" text="{i18n>save}" press="" />
+		</beginButton>
+		<endButton>
+			<Button id="cancelEditPersonnel" text="{i18n>cancel}"
+				press="handleClose" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,10 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Toolbar class="customMasterHeader">
+		<SearchField width="90%" search="onFilterMaster"
+			placeholder="{i18n>lMHSearchPlacehdr}" selectOnFocus="true"
+			enableSuggestions="true" suggest="onSearchMaster" />
+		<Button icon="sap-icon://sort"
+			class="mySortBtn sapUiTinyMarginEnd" press="onSortMaster" />
+	</Toolbar>
+</core:FragmentDefinition>

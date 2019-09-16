@@ -1,0 +1,806 @@
+<!--======================================================================-->
+<!--==  E~CUBE                                                          ==-->
+<!--==******************************************************************==-->
+<!--==  AUTHOR             : Jean-Pierre Jerome (JPJ)                   ==-->
+<!--==  DATE               : 13.08.2019                                 ==-->
+<!--==  GAPID              : G01.001.05                                 ==-->
+<!--==******************************************************************==-->
+<!--==  DESCRIPTION        : SR 622921 – A FIORI front end app for      ==-->
+<!--==                       labor, temporary workers, equipment,       ==-->
+<!--==                       equipments, supplies, subcontracting,      ==-->
+<!--==                       production quantities                      ==-->
+<!--==                       COPY of ZCPJD1 – DEV 00549 from KHEOPS     ==-->
+<!--======================================================================-->
+<!--== MODIFICATIONS  HISTORY                                           ==-->
+<!--======================================================================-->
+<!--== DATE        AUTHOR         SR NUM       IDEN.   TRANS. REQ       ==-->
+<!--==******************************************************************==-->
+<!--   23.08.2019  JPJEROME       622921       JPJ      TR XXXXXXXXXX     -->
+<!--======================================================================-->
+<mvc:View controllerName="zwo.ui.wks_rep.controller.Papyrus"
+	xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:core="sap.ui.core"
+	xmlns:l="sap.ui.layout" displayBlock="true" height="100%"
+	busy="{PapyrusView>/busy}"
+	busyIndicatorDelay="{PapyrusView>/BusyDelay}">
+	<Page id="papyrus" title="{i18n>papyrusTitle}"
+		enableScrolling="true" onAfterRendering="onMainPageRendered"
+		class="projectContent">
+		<customHeader>
+			<Bar>
+				<contentLeft>
+					<Button type="default" icon="sap-icon://nav-back"
+						press="onNavHome" class="previewNavBtn">
+					</Button>
+				</contentLeft>
+				<contentMiddle>
+					<Title level="H2" text="{i18n>papyrusPageTitle}" />
+				</contentMiddle>
+			</Bar>
+		</customHeader>
+		<Panel class="customSubHeaderBackground printHeader"
+			width="100%">
+			<headerToolbar class="sapUiResponsiveMargin">
+				<Toolbar>
+					<Title level="H2" text="{i18n>filterProject}"
+						class="customPreviewHeaderTitle sapUiTinyMarginBottom" />
+				</Toolbar>
+			</headerToolbar>
+			<content>
+				<l:Grid id="projectGrid" defaultSpan="L2 M3 S12"
+					class="sapUiNoMargin sapUiNoContentPadding">
+					<VBox>
+						<Label text="{i18n>foremanSelected}"
+							class="customHeaderTextColor" />
+						<SearchField id="selectForeman"
+							class="mySelectForeman customLabelReport" width="auto"
+							placeholder="{i18n>dBSelectPlacehdr}" maxLength="1"
+							liveChange="onNoInputLiveChange" search="onSelectForeman" />
+					</VBox>
+					<VBox>
+						<Label text="{i18n>statusToDisplay}"
+							class="customHeaderTextColor" />
+						<SearchField id="selectStatus" class="mySelectForeman"
+							width="auto" placeholder="{i18n>statusTxt}" maxLength="1"
+							search="onSelectStatus" />
+					</VBox>
+					<VBox class="sapUiSmallMarginTop">
+						<Button text="{i18n>filterButtonText}"
+							press="onPressPapyrusFilter"
+							class="customFilterButton customFilterPreviewBtn" />
+					</VBox>
+				</l:Grid>
+			</content>
+		</Panel>
+		<List id="papyrusList" items="{}">
+			<CustomListItem id="papyrusListTemplate">
+				<Panel class="customSubHeaderBackground" width="100%">
+					<content>
+						<Toolbar height="150px">
+							<VBox>
+								<VBox class="sapUiSmallMargin">
+									<Label text="{ProjectName}" labelFor="projectNamePapyrus"
+										class="projectNameLabel myMasterLargeFont cutomTextColorPreview">
+									</Label>
+									<Text text="{ProjectNo}"
+										class="projectNameText myMasterLargeFont cutomTextColorPreview">
+									</Text>
+								</VBox>
+								<VBox class="sapUiSmallMargin">
+									<Label text="{ForemanName}" labelFor="foremanNamePapyrus"
+										class="foremanNameLabel myMasterMediumFont cutomTextColorPreview">
+									</Label>
+									<Text text="{ForemanNo}"
+										class="foremanNameText myMasterMediumFont cutomTextColorPreview">
+									</Text>
+								</VBox>
+							</VBox>
+							<ToolbarSpacer />
+							<VBox class="sapUiSmallMargin">
+								<Text text="{TotalCost} {Currency}"
+									class="myMasterXLargeFont cutomTextColorPreview" />
+								<Text text="{i18n>totalCost}"
+									class="myMasterSmallFont cutomTextColorPreview sapUiLargeMarginBegin customTotalCost" />
+								<Text
+									text="{i18n>pointed} { path: 'Day', formatter: '.formatter.formatDisplayDate' }"
+									class="sapUiLargeMarginTop myMasterSmallFont cutomTextColorPreview"></Text>
+							</VBox>
+						</Toolbar>
+					</content>
+				</Panel>
+				<Panel class="sapUiSmallMargin" width="98%">
+					<content>
+						<Toolbar height="45px">
+							<Text text="{i18n>Lab}"
+								class="sapUiSmallMarginBottom customPreviewFont">
+							</Text>
+						</Toolbar>
+						<ScrollContainer id="tableScrollLab" class=""
+							height="" vertical="true">
+							<Table items="{PrintingToLabor}" id="papyrusLaborList"
+								height="200px"
+								class="sapUiNoMargin sapUiNoContentPadding customTable">
+								<columns class="sapUiNoContentPadding">
+									<Column width="5rem">
+										<Text text="{i18n>empNo}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>empName}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>cmt}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>costObj}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Qty}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{EmployeeNo}" class="customText"></Text>
+											<Text text="{EmployeeName}" class="customText"></Text>
+											<Text text="{Comments}" class="customText"></Text>
+											<Text text=""></Text>
+											<Text text="{CostCode}" class="customText"></Text>
+											<Text text="{QtyDay} {Unit}" class="customText"
+												visible="{= ${QtyDay} !== ''}"></Text>
+											<Text text=""></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</content>
+					<content>
+						<Toolbar height="50px">
+							<Text text="{i18n>Temp}"
+								class="sapUiSmallMarginTopBottom customPreviewFont">
+							</Text>
+						</Toolbar>
+						<ScrollContainer id="tableScrollTemp" class=""
+							height="" vertical="true">
+							<Table items="{PrintingToTemporary}" id="papyrusTempList"
+								height="200px"
+								class="sapUiNoMargin sapUiNoContentPadding customTable">
+								<columns class="sapUiNoContentPadding">
+									<Column width="5rem">
+										<Text text="{i18n>materialNo}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>desc}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>supNo}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>supName}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>costObj}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Qty}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{MaterialNo}" class="customText"></Text>
+											<Text text="{MaterialDesc}" class="customText"></Text>
+											<Text text="{SupplierNo}" class="customText"></Text>
+											<Text text="{SupplierName}" class="customText"></Text>
+											<Text text="{CostCode}" class="customText"></Text>
+											<Text text="{QtyOperated} {Unit}" class="customText"
+												visible="{= ${QtyOperated} !== ''}"></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</content>
+					<content>
+						<Toolbar height="50px">
+							<Text text="{i18n>Equip}"
+								class="sapUiSmallMarginTopBottom customPreviewFont">
+							</Text>
+						</Toolbar>
+						<ScrollContainer id="tableScrollEquip" class=""
+							height="" vertical="true">
+							<Table items="{PrintingToEquipment}" id="papyrusEquipList"
+								height="200px"
+								class="sapUiNoMargin sapUiNoContentPadding customTable">
+								<columns class="sapUiNoContentPadding">
+									<Column width="5rem">
+										<Text text="{i18n>materialNo}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>desc}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>costObj}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Qty}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>status}" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{EquimentNo}" class="customText"></Text>
+											<Text text="{EquipmentName}" class="customText"></Text>
+											<Text text=""></Text>
+											<Text text=""></Text>
+											<Text text="{CostCode}" class="customText"></Text>
+											<Text text="{Quantity} {Unit}" class="customText"
+												visible="{= ${Quantity} !== ''}"></Text>
+											<Text text="{Status}" class="customText"></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</content>
+					<content>
+						<Toolbar height="50px">
+							<Text text="{i18n>Rent}"
+								class="sapUiSmallMarginTopBottom customPreviewFont">
+							</Text>
+						</Toolbar>
+						<ScrollContainer id="tableScrollRent" class=""
+							height="" vertical="true">
+							<Table items="{PrintingToRental}" id="papyrusRentList"
+								height="200px"
+								class="sapUiNoMargin sapUiNoContentPadding customTable">
+								<columns class="sapUiNoContentPadding">
+									<Column width="5rem">
+										<Text text="{i18n>materialNo}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>desc}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>supNo}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>supName}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>costObj}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Qty}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>status}" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{MaterialNo}" class="customText"></Text>
+											<Text text="{MaterialDesc}" class="customText"></Text>
+											<Text text="{SupplierNo}" class="customText"></Text>
+											<Text text="{SupplierName}" class="customText"></Text>
+											<Text text="{CostCode}" class="customText"></Text>
+											<Text text="{QtyOperated} {Unit}" class="customText"
+												visible="{= ${QtyOperated} !== ''}"></Text>
+											<Text text="{Status}" class="customText"></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</content>
+					<content>
+						<Toolbar height="50px">
+							<Text text="{i18n>Mat}"
+								class="sapUiSmallMarginTopBottom customPreviewFont">
+							</Text>
+						</Toolbar>
+						<ScrollContainer id="tableScrollMat" class=""
+							height="" vertical="true">
+							<Table items="{PrintingToMaterial}" id="papyrusMatList"
+								height="200px"
+								class="sapUiNoMargin sapUiNoContentPadding customTable">
+								<columns class="sapUiNoContentPadding">
+									<Column width="5rem">
+										<Text text="{i18n>materialNo}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>desc}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>supNo}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>supName}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>costObj}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Qty}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{MaterialNo}" class="customText"></Text>
+											<Text text="{MaterialDesc}" class="customText"></Text>
+											<Text text="{SupplierNo}" class="customText"></Text>
+											<Text text="{SupplierName}" class="customText"></Text>
+											<Text text="{CostCode}" class="customText"></Text>
+											<Text text="{QtyOperated} {Unit}" class="customText"
+												visible="{= ${QtyOperated} !== ''}"></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</content>
+					<content>
+						<Toolbar height="50px">
+							<Text text="{i18n>SubCon}"
+								class="sapUiSmallMarginTopBottom customPreviewFont">
+							</Text>
+						</Toolbar>
+						<ScrollContainer id="tableScrollSub" class=""
+							height="" vertical="true">
+							<Table items="{PrintingToSubContr}" id="papyrusSubConList"
+								height="200px"
+								class="sapUiNoMargin sapUiNoContentPadding customTable">
+								<columns class="sapUiNoContentPadding">
+									<Column width="5rem">
+										<Text text="{i18n>materialNo}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>desc}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>supNo}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>supName}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>costObj}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Qty}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{MaterialNo}" class="customText"></Text>
+											<Text text="{MaterialDesc}" class="customText"></Text>
+											<Text text="{SupplierNo}" class="customText"></Text>
+											<Text text="{SupplierName}" class="customText"></Text>
+											<Text text="{CostCode}" class="customText"></Text>
+											<Text text="{QtyOperated} {Unit}" class="customText"
+												visible="{= ${QtyOperated} !== ''}"></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</content>
+					<content>
+						<Toolbar height="50px">
+							<Text text="{i18n>Intern}"
+								class="sapUiSmallMarginTopBottom customPreviewFont">
+							</Text>
+						</Toolbar>
+						<ScrollContainer id="tableScrollInt" class=""
+							height="" vertical="true">
+							<Table items="{PrintingToInternal}" id="papyrusInternList"
+								height="200px"
+								class="sapUiNoMargin sapUiNoContentPadding customTable">
+								<columns class="sapUiNoContentPadding">
+									<Column width="5rem">
+										<Text text="{i18n>materialNo}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>desc}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>wbsElement}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>intName}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>costObj}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Qty}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{MaterialNo}" class="customText"></Text>
+											<Text text="{MaterialDesc}" class="customText"></Text>
+											<Text text="{WbsElement}" class="customText"></Text>
+											<Text text="{Name}" class="customText"></Text>
+											<Text text="{CostCode}" class="customText"></Text>
+											<Text text="{QtyOperated} {Unit}" class="customText"
+												visible="{= ${QtyOperated} !== ''}"></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</content>
+					<content>
+						<Toolbar height="50px">
+							<Text text="{i18n>Qty}"
+								class="sapUiSmallMarginTopBottom customPreviewFont">
+							</Text>
+						</Toolbar>
+						<ScrollContainer id="tableScrollQty" class=""
+							height="" vertical="true">
+							<Table items="{PrintingToQuantity}" id="papyrusQtyList"
+								height="200px"
+								class="sapUiNoMargin sapUiNoContentPadding customTable">
+								<columns class="sapUiNoContentPadding">
+									<Column width="5rem">
+										<Text text="{i18n>costCode}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>desc}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>cmt}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Qty}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{CostCode}" class="customText"></Text>
+											<Text text="{CostCodeDesc}" class="customText"></Text>
+											<Text text="{Comments}" class="customText"></Text>
+											<Text text=""></Text>
+											<Text text=""></Text>
+											<Text text="{Quantity} {Unit}" class="customText"
+												visible="{= ${Quantity} !== ''}"></Text>
+											<Text text=""></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</content>
+					<content>
+						<Toolbar height="50px">
+							<Text text="{i18n>Control}"
+								class="sapUiSmallMarginTopBottom customPreviewFont">
+							</Text>
+						</Toolbar>
+						<ScrollContainer id="tableScrollControl" class=""
+							height="" vertical="true">
+							<Table items="{PrintingToControl}" id="papyrusControlList"
+								height="200px"
+								class="sapUiNoMargin sapUiNoContentPadding customTable">
+								<columns class="sapUiNoContentPadding">
+									<Column width="5rem">
+										<Text text="{i18n>Control}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Accept}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>confOk}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>confKo}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>commentOk}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>commentKo}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{Control}" class="customText"></Text>
+											<Text text="{Accept}" class="customText"></Text>
+											<Text text="{ConfOK}" class="customText"></Text>
+											<Text text="{ConfKO}" class="customText"></Text>
+											<Text text="{CommentOK}" class="customText"></Text>
+											<Text text="{CommentKO}" class="customText"></Text>
+											<Text text=""></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</content>
+					<content>
+						<Toolbar height="50px">
+							<Text text="{i18n>Weather}"
+								class="sapUiSmallMarginTopBottom customPreviewFont">
+							</Text>
+						</Toolbar>
+						<ScrollContainer id="tableScrollWeather" class=""
+							height="" vertical="true">
+							<Table items="{PrintingToWeather}" id="papyrusWeatherList"
+								height="200px"
+								class="sapUiNoMargin sapUiNoContentPadding customTable">
+								<columns class="sapUiNoContentPadding">
+									<Column width="5rem">
+										<Text text="{i18n>Typ}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Morning}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Afternoon}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{WeatherCode}" class="customText"></Text>
+											<Text text="{Morning}" class="customText"></Text>
+											<Text text="{Afternoon}" class="customText"></Text>
+											<Text text=""></Text>
+											<Text text=""></Text>
+											<Text text=""></Text>
+											<Text text=""></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</content>
+					<content>
+						<Toolbar height="50px">
+							<Text text="{i18n>Visit}"
+								class="sapUiSmallMarginTopBottom customPreviewFont">
+							</Text>
+						</Toolbar>
+						<ScrollContainer id="tableScrollVisit" class=""
+							height="" vertical="true">
+							<Table items="{PrintingToVisit}" id="papyrusVisitList"
+								height="200px"
+								class="sapUiNoMargin sapUiNoContentPadding customTable">
+								<columns class="sapUiNoContentPadding">
+									<Column width="5rem">
+										<Text text="{i18n>Object}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Name}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Top}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Comment1}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{Object}" class="customText"></Text>
+											<Text text="{Name}" class="customText"></Text>
+											<Text text="{Top}" class="customText"></Text>
+											<Text text="{Comments}" class="customText"></Text>
+											<Text text=""></Text>
+											<Text text=""></Text>
+											<Text text=""></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</content>
+					<content>
+						<Toolbar height="50px">
+							<Text text="{i18n>Incident}"
+								class="sapUiSmallMarginTopBottom customPreviewFont">
+							</Text>
+						</Toolbar>
+						<ScrollContainer id="tableScrollIncident" class=""
+							height="" vertical="true">
+							<Table items="{PrintingToIncident}"
+								id="papyrusIncidentList" height="200px"
+								class="sapUiNoMargin sapUiNoContentPadding customTable">
+								<columns class="sapUiNoContentPadding">
+									<Column width="5rem">
+										<Text text="{i18n>Object}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Name}" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Top}" />
+									</Column>
+									<Column width="8rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="{i18n>Comment1}" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+									<Column width="5rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+									<Column width="4rem" hAlign="Left"
+										minScreenWidth="768px" demandPopin="true">
+										<Text text="" />
+									</Column>
+								</columns>
+								<items>
+									<ColumnListItem>
+										<cells>
+											<Text text="{Object}" class="customText"></Text>
+											<Text text="{Name}" class="customText"></Text>
+											<Text text="{Top}" class="customText"></Text>
+											<Text text="{Comments}" class="customText"></Text>
+											<Text text=""></Text>
+											<Text text=""></Text>
+											<Text text=""></Text>
+										</cells>
+									</ColumnListItem>
+								</items>
+							</Table>
+						</ScrollContainer>
+					</content>
+				</Panel>
+			</CustomListItem>
+		</List>
+		<footer>
+			<Bar class="myCustomFooter">
+				<contentRight>
+					<Button text="{i18n>printButtonText}"
+						class="sapUiSmallMarginBegin myCustomPreviewFooterBtn"
+						press="onPressPrint" />
+					<Button text="{i18n>exportButtonText}"
+						class="sapUiSmallMarginBegin myCustomPreviewFooterBtn"
+						press="onPressExport" />
+	                     <!-- <Button text="{i18n>integrateButtonText}"
+	                                  class="sapUiSmallMarginBegin myCustomPreviewIntBtn"
+	                                  press="onPressIntegrate"/> -->
+				</contentRight>
+			</Bar>
+		</footer>
+	</Page>
+</mvc:View>

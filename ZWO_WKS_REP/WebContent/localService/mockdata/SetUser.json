@@ -1,0 +1,12 @@
+{
+    "d": {
+        "SetUser": {
+            "__metadata": {
+                "type": "ZPSGW00549_ZCPJD1_SRV.User"
+            },
+            "Uname": "MPITTUMBUR",
+            "PersonID": "00000000",
+            "DateFormat": "DD.MM.YYYY"
+        }
+    }
+}

@@ -1,0 +1,96 @@
+<!--======================================================================-->
+<!--==  E~CUBE                                                          ==-->
+<!--==******************************************************************==-->
+<!--==  AUTHOR             : Jean-Pierre Jerome (JPJ)                   ==-->
+<!--==  DATE               : 13.08.2019                                 ==-->
+<!--==  GAPID              : G01.001.05                                 ==-->
+<!--==******************************************************************==-->
+<!--==  DESCRIPTION        : SR 622921 – A FIORI front end app for      ==-->
+<!--==                       labor, temporary workers, equipment,       ==-->
+<!--==                       equipments, supplies, subcontracting,      ==-->
+<!--==                       production quantities                      ==-->
+<!--==                       COPY of ZCPJD1 – DEV 00549 from KHEOPS     ==-->
+<!--======================================================================-->
+<!--== MODIFICATIONS  HISTORY                                           ==-->
+<!--======================================================================-->
+<!--== DATE        AUTHOR         SR NUM       IDEN.   TRANS. REQ       ==-->
+<!--==******************************************************************==-->
+<!--   23.08.2019  JPJEROME       622921       JPJ      TR XXXXXXXXXX     -->
+<!--======================================================================-->
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="commentDialog" contentWidth="400px"
+		contentHeight="auto" title="{i18n>comments}" draggable="true">
+		<content>
+			<VBox>
+				<Panel class="sapUiNoMargin sapUiNoContentPadding"
+					visible="{= ${Origin} !== 'M'}">
+					<VBox>
+						<FlexBox class="sapUiNoMarginTopBottom"
+							visible="{= ${CommentsPapyrus} !== ''}" width="100%"
+							justifyContent="Start" alignItems="Start">
+							<Text text="{CommentsPapyrus}" class="sapUiSmallMargin"></Text>
+						</FlexBox>
+						<FlexBox class="sapUiNoMarginTopBottom"
+							visible="{= ${CommentsPapyrus} !== ''}" width="100%"
+							justifyContent="End" alignItems="End">
+							<VBox
+								class="sapUiNoMarginTopBottom sapUiSmallMarginBeginEnd"
+								justifyContent="End" alignItems="End">
+								<Text text="{ForemanName}" />
+								<Text
+									text="{i18n>on} {path:'Day',formatter: '.formatter.formatDisplayDate'}" />
+								<Text
+									text="{i18n>from} {= ${Origin} === 'P' ? ${i18n>papyrus} : ${i18n>zcpjd1}}" />
+							</VBox>
+						</FlexBox>
+						<FlexBox visible="{= ${CommentsPapyrus} === ''}"
+							class="sapUiSmallMargin">
+							<Text text="{i18n>noPapyrusCmts}" />
+						</FlexBox>
+					</VBox>
+				</Panel>
+				<Panel class="sapUiNoMargin sapUiNoContentPadding">
+					<VBox>
+						<FlexBox
+							visible="{= ${CommentsManual} === '' || ${Form>/mode} === 'edit' }"
+							class="sapUiNoMargin sapUiNoContentPadding"
+							justifyContent="Center" alignItems="Start">
+							<TextArea id="idCmtTxtArea"
+								placeholder="{i18n>enterComment}" editable="false" rows="6"
+								cols="44" />
+						</FlexBox>
+						<FlexBox
+							visible="{= ${CommentsManual} !== '' &amp;&amp; ${Form>/mode} === 'view' }"
+							class="sapUiNoMargin sapUiNoContentPadding"
+							justifyContent="Start" alignItems="Start">
+							<Text id="idCmtTxt" text="{CommentsManual}"
+								class="sapUiSmallMargin" />
+						</FlexBox>
+						<FlexBox class="sapUiNoMarginTopBottom"
+							visible="{= ${CommentsManual} !== '' &amp;&amp; ${Form>/mode} === 'view' }"
+							width="100%" justifyContent="End" alignItems="End">
+							<VBox
+								class="sapUiNoMarginTopBottom sapUiSmallMarginBeginEnd"
+								justifyContent="End" alignItems="End">
+								<Text text="{ForemanName}" />
+								<Text
+									text="{i18n>on} {path:'Day', formatter: '.formatter.formatDisplayDate'}" />
+								<Text text="{i18n>from} {i18n>zcpjd1}" />
+							</VBox>
+						</FlexBox>
+					</VBox>
+				</Panel>
+			</VBox>
+		</content>
+		<beginButton>
+			<Button id="idBtnComment"
+				text="{= ${CommentsManual} === '' ? ${i18n>addComment} : ${Form>/mode} === 'view' ? ${i18n>editComment} : ${i18n>saveComment}}"
+				press="onPressEditComment" />
+		</beginButton>
+		<endButton>
+			<Button id="closeComment" text="{i18n>close}"
+				press="handleCloseQtyComment" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

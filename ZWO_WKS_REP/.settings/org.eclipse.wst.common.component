@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ZWO_WKS_REP">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="ZWO_WKS_REP"/>
+        <property name="java-output-path" value="/ZWO_WKS_REP/build/classes"/>
+    </wb-module>
+</project-modules>

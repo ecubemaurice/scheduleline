@@ -1,0 +1,118 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="laborPapyrusDialog" contentWidth="800px"
+		contentHeight="auto" title="{i18n>laborDetails}">
+		<Panel class="summaryPapyrusHeader" width="100%">
+			<content>
+				<Toolbar height="125px">
+					<VBox>
+						<VBox class="sapUiSmallMargin">
+							<Label text="{i18n>papyrusWbsElement}"
+								labelFor="papyrusWbsElementLabel"
+								class="myMasterSmallFont customPapyrusHeaderTextColor">
+							</Label>
+							<Text text="{ProjectName}"
+								class="myMasterLargeFont cutomTextColorPreview">
+							</Text>
+						</VBox>
+						<VBox class="sapUiSmallMargin">
+							<Label text="{i18n>OneForemanTxt}"
+								labelFor="foremanPaprusLabel"
+								class="myMasterSmallFont customPapyrusHeaderTextColor">
+							</Label>
+							<Label text="{ForemanName}"
+								labelFor="foremanNamePapyrusLabel"
+								class="myMasterLargeFont cutomTextColorPreview">
+							</Label>
+							<Text text="{ForemanNo}"
+								class="myMasterMediumFont cutomTextColorPreview">
+							</Text>
+						</VBox>
+					</VBox>
+					<ToolbarSpacer />
+					<VBox class="sapUiSmallMargin">
+						<Text
+							text="{path: 'Day',  formatter: '.formatter.formatDisplayDay'}"
+							class="myMasterSmallFont cutomTextColorPreview sapUiLargeMarginBottom customPapyrusHeaderText" />
+					</VBox>
+				</Toolbar>
+			</content>
+		</Panel>
+		<Panel width="100%">
+			<content>
+				<Toolbar height="100%">
+					<VBox width="100%">
+						<VBox class="sapUiSmallMargin">
+							<Label text="{i18n>employee}"
+								labelFor="papyrusEmployeeLabel"
+								class="myMasterSmallFont customPapyrusDetailsFontSize">
+							</Label>
+							<Text text="{EmployeeName}" class="myMasterLargeFont">
+							</Text>
+							<Text text="{EmployeeNo}" class="myMasterMediumFont">
+							</Text>
+						</VBox>
+						<VBox class="sapUiSmallMargin">
+							<Label text="{MuName}" labelFor="unitPaprusLabel"
+								class="myMasterSmallFont customPapyrusDetailsFontSize">
+							</Label>
+							<Text text="{Mu}" class="myMasterMediumFont">
+							</Text>
+						</VBox>
+						<VBox class="sapUiSmallMargin">
+							<Label text="{i18n>activityType}"
+								labelFor="activityTypePaprusLabel"
+								class="myMasterSmallFont customPapyrusDetailsFontSize">
+							</Label>
+							<Text text="{ActivityType}" class="myMasterMediumFont">
+							</Text>
+						</VBox>
+						<VBox class="sapUiSmallMargin">
+							<Label text="{i18n>price}" labelFor="pricePaprusLabel"
+								class="myMasterSmallFont customPapyrusDetailsFontSize ">
+							</Label>
+							<Text text="{Price} {Currency}" class="myMasterMediumFont">
+							</Text>
+						</VBox>
+					</VBox>
+					<ToolbarSpacer />
+					<VBox width="100%"
+						class="sapUiLargeMarginBottom customPapyrusDetText">
+						<VBox class="sapUiSmallMargin">
+							<Label
+								text="{i18n>Qty} ({i18n>on} {path: 'Day',  formatter: '.formatter.formatDisplayDate'})"
+								labelFor="papyrusQuantityLabel"
+								class="myMasterSmallFont customPapyrusDetailsFontSize">
+							</Label>
+						</VBox>
+						<HBox>
+							<VBox class="sapUiSmallMargin">
+								<Label text="{i18n>day}" labelFor="dayPapyrusLabel"
+									class="myMasterSmallFont customPapyrusDetailsFontSize">
+								</Label>
+								<Text text="{DayQty} {Unit}" class="myMasterMediumFont" />
+							</VBox>
+							<VBox class="sapUiSmallMargin">
+								<Label text="{i18n>night}" labelFor="nightPapyrusLabel"
+									class="myMasterSmallFont customPapyrusDetailsFontSize">
+								</Label>
+								<Text text="{NightQty} {Unit}" class="myMasterMediumFont" />
+							</VBox>
+						</HBox>
+						<VBox class="sapUiSmallMargin">
+							<Label text="{i18n>comment}" labelFor="commentPapyrusLabel"
+								class="myMasterSmallFont customPapyrusDetailsFontSize">
+							</Label>
+							<Text text="{Comments}" class="myMasterMediumFont">
+							</Text>
+						</VBox>
+					</VBox>
+				</Toolbar>
+			</content>
+		</Panel>
+		<endButton>
+			<Button id="closePapyrusSummary" text="{i18n>close}"
+				press="handleClosePapyrusSummary" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

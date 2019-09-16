@@ -1,0 +1,167 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<Dialog id="masterAdd" class="masterAddDialog"
+		title="{Form>/title}" draggable="true" busy="{Form>/busy}"
+		busyIndicatorDelay="{Form>/BusyDelay}">
+		<content>
+			<f:SimpleForm id="masterAddForm" width="415px"
+				editable="true">
+				<f:content>
+					<VBox alignItems="End">
+						<HBox alignItems="Center">
+							<Label text="{i18n>personnelNo}" labelFor="idPersonnelNo"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idPersonnelNo" width="200px"
+								value="{Input>/EmployeeNo}"
+								valueHelpRequest="onRequestPersonnel" showValueHelp="true"
+								required="true" class="addFormInput" editable="true"
+								liveChange="onInputChange" submit="onSubmitPersonnel" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>personnelName}"
+								labelFor="idPersonnelName"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idPersonnelName" width="200px"
+								value="{Input>/EmployeeName}" required="true"
+								class="addFormInput" editable="true" liveChange="onInputChange" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>unitNo}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idUnitNo" width="200px" value="{Input>/Mu}"
+								required="true" class="addFormInput" editable="false"
+								liveChange="onInputChange" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>unitName}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idUnitName" width="200px"
+								value="{Input>/MuName}" class="addFormInput" editable="false"
+								liveChange="onInputChange" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>activityType}" labelFor="idActivityType"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idActivityType" width="200px"
+								value="{Input>/ActivityType}"
+								valueHelpRequest="onRequestEmployeeActivity"
+								showValueHelp="true" required="true" class="addFormInput"
+								editable="true" liveChange="onInputChange"
+								submit="onSubmitActivityType" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>UnitPrice}" labelFor="idUnitPrice"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idUnitPrice" required="true"
+								value="{Input>/Price}" width="200px" type="Number"
+								class="addFormInput" editable="true" liveChange="onInputChange"
+								change="onAfterInputChanged" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>ccq}" labelFor="idCCQ"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idCCQ" width="200px" value="{Input>/Ccq}"
+								valueHelpRequest="onRequestCCQ" showValueHelp="true"
+								class="addFormInput" editable="true" liveChange="onInputChange"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}"
+								required="true" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>rule}" labelFor="idRule"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idRule" width="200px" value="{Input>/Rule}"
+								valueHelpRequest="onRequestRule" showValueHelp="true"
+								class="addFormInput" editable="true" liveChange="onInputChange"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}"
+								required="true" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>workTime}"
+								labelFor="idWorkTime, idWorkTime2" required="true"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<HBox alignItems="Center"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}">
+								<TimePicker id="idWorkTime" class="addFormInput"
+									width="85px" required="true" editable="true"
+									valueFormat="HH:mm" displayFormat="HH:mm" placeholder="00:00"
+									value="{Input>/WorkTimeBeg}" liveChange="onInputChange" />
+								<Text text="{i18n>to}" class="sapUiNoMarginBeginEnd" />
+								<TimePicker id="idWorkTime2" class="addFormInput"
+									width="85px" required="true" editable="true"
+									valueFormat="HH:mm" displayFormat="HH:mm" placeholder="00:00"
+									value="{Input>/WorkTimeEnd}" liveChange="onInputChange" />
+							</HBox>
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>breakTime}"
+								labelFor="idBreakTime, idBreakTime2"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<HBox alignItems="Center"
+								visible="{= ${InScreenFilters>/ProjectSet/Country} === 'QC'}">
+								<TimePicker id="idBreakTime" class="addFormInput"
+									value="{Input>/BreakTimeBeg}" width="85px" required="true"
+									editable="true" valueFormat="HH:mm" displayFormat="HH:mm"
+									placeholder="00:00" />
+								<Text text="{i18n>to}" class="sapUiNoMarginBeginEnd" />
+								<TimePicker id="idBreakTime2" class="addFormInput"
+									value="{Input>/BreakTimeEnd}" width="85px" required="true"
+									editable="true" valueFormat="HH:mm" displayFormat="HH:mm"
+									placeholder="00:00" />
+							</HBox>
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>costCode}" labelFor="idCostCode"
+								visible="{= ${Form>/mode} === 'add'}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idCostCode" width="200px"
+								value="{Input>/CostCode}" valueHelpRequest="onRequestCostCode"
+								showValueHelp="true" required="true" class="addFormInput"
+								editable="true" liveChange="onInputChange"
+								visible="{= ${Form>/mode} === 'add'}" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>quantity}" labelFor="idQuantity"
+								visible="{= ${Form>/mode} === 'add'}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idQuantity" width="200px"
+								value="{Input>/TotalDayQty}" type="Number" class="addFormInput"
+								editable="true" liveChange="onInputChange"
+								visible="{= ${Form>/mode} === 'add'}" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>recPersonNo}" labelFor="idRecPersonNo"
+								visible="{= ${Form>/mode} === 'add'}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idRecPersonNo" width="200px"
+								valueHelpRequest="onRequestPersonnel" showValueHelp="true"
+								required="true" class="addFormInput" value="{Input>/ForemanNo}"
+								visible="{= ${Form>/mode} === 'add'}" editable="true"
+								liveChange="onInputChange" />
+						</HBox>
+						<HBox alignItems="Center">
+							<Label text="{i18n>version}" labelFor="idVersion"
+								visible="{= ${Form>/mode} === 'add'}"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idVersion" width="200px" class="addFormInput"
+								value="{Input>/Version}" editable="true"
+								visible="{= ${Form>/mode} === 'add'}" liveChange="onInputChange" />
+						</HBox>
+					</VBox>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button id="savePersonnel" text="{i18n>save}"
+				press="onPressLaborSave" />
+		</beginButton>
+		<endButton>
+			<Button id="cancelPersonnel" text="{i18n>cancel}"
+				press="handleClose" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

@@ -1,0 +1,105 @@
+<!--======================================================================-->
+<!--==  E~CUBE                                                          ==-->
+<!--==******************************************************************==-->
+<!--==  AUTHOR             : Jean-Pierre Jerome (JPJ)                   ==-->
+<!--==  DATE               : 13.08.2019                                 ==-->
+<!--==  GAPID              : G01.001.05                                 ==-->
+<!--==******************************************************************==-->
+<!--==  DESCRIPTION        : SR 622921 – A FIORI front end app for      ==-->
+<!--==                       labor, temporary workers, equipment,       ==-->
+<!--==                       equipments, supplies, subcontracting,      ==-->
+<!--==                       production quantities                      ==-->
+<!--==                       COPY of ZCPJD1 – DEV 00549 from KHEOPS     ==-->
+<!--======================================================================-->
+<!--== MODIFICATIONS  HISTORY                                           ==-->
+<!--======================================================================-->
+<!--== DATE        AUTHOR         SR NUM       IDEN.   TRANS. REQ       ==-->
+<!--==******************************************************************==-->
+<!--   23.08.2019  JPJEROME       622921       JPJ      TR XXXXXXXXXX     -->
+<!--======================================================================-->
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form"
+	xmlns:core="sap.ui.core">
+	<Dialog id="TempCostCodeAdd" class="masterAddDialog"
+		title="{Form>/title}" draggable="true">
+		<content>
+			<f:SimpleForm id="TempCostCodeAddForm" width="400px"
+				editable="true">
+				<f:content>
+					<VBox alignItems="End">
+						<HBox>
+							<Label text="{i18n>costCode}" labelFor="idCostCodeAdd"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idCostCodeAdd" width="200px"
+								valueHelpRequest="onRequestCostCode" showValueHelp="true"
+								required="{= ${Form>/mode} === 'add' ? true : ${Input>/Status} === '' || 'N' || 'W' ? true : false}"
+								class="addFormInput" value="{Input>/CostCode}" editable="true"
+								liveChange="onInputChange" submit="onSubmitCostCode" />
+						</HBox>
+						<HBox>
+							<Label text="{i18n>costCodeDesc}" labelFor="idCostCodeDesc"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idCostCodeDesc" width="200px"
+								class="addFormInput" value="{Input>/CostCodeDes}"
+								editable="false" liveChange="onInputChange" />
+						</HBox>
+						<HBox>
+							<Label text="{i18n>quantity}" labelFor="idQuantityCC"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idQuantityCC" width="200px" type="Number"
+								class="addFormInput" value="{Input>/QuantityCC}" required="true"
+								liveChange="onInputChange" change="onAfterInputChanged" />
+						</HBox>
+						<HBox>
+							<Label text="{i18n>delNote}" labelFor="idDelNote"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idDelNote" width="200px" class="addFormInput"
+								value="{Input>/DeliveryNoteNo}" liveChange="onInputChange"
+								change="onAfterInputChanged" />
+						</HBox>
+						<HBox>
+							<Label text="{i18n>origin}" labelFor="idOrigin"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idOrigin" width="200px" class="addFormInput"
+								value="{Input>/Origin}" editable="false"
+								liveChange="onInputChange" />
+						</HBox>
+						<HBox>
+							<Label text="{i18n>recPersonNo}" labelFor="idRecPersonNo"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idRecPersonNo" width="200px"
+								valueHelpRequest="onRequestPersonnel" showValueHelp="true"
+								required="true" class="addFormInput" value="{Input>/ForemanNo}"
+								editable="{= ${Form>/mode} === 'add' ? true : ${Input>/Origin} === 'M' ? true : false}"
+								liveChange="onInputChange" submit="onSubmitRecNo" />
+						</HBox>
+						<HBox>
+							<Label text="{i18n>recPersonName}"
+								labelFor="idRecPersonName"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idRecPersonName" width="200px"
+								class="addFormInput" value="{Input>/ForemanName}"
+								editable="false" liveChange="onInputChange" />
+						</HBox>
+						<HBox>
+							<Label text="{i18n>version}" labelFor="idVersion"
+								class="addFormLabel sapUiSmallMarginEnd" />
+							<Input id="idVersion" width="200px" class="addFormInput"
+								value="{Input>/Version}"
+								editable="{= ${Form>/mode} === 'add' ? true : ${Input>/Origin} === 'M' ? true : false}"
+								liveChange="onInputChange" />
+						</HBox>
+					</VBox>
+				</f:content>
+			</f:SimpleForm>
+		</content>
+		<beginButton>
+			<Button id="saveCostCodeTemp" text="{i18n>save}"
+				press="handleSaveCostCode" />
+		</beginButton>
+		<endButton>
+			<Button id="cancelCostCode" text="{i18n>cancel}"
+				press="handleClose" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

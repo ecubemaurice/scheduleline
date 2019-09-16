@@ -1,0 +1,39 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="integrationDialog" contentWidth="413px"
+		contentHeight="445px" busy="{IntegrateView>/busy}"
+		busyIndicatorDelay="{IntegrateView>/BusyDelay}"
+		title="{i18n>confirmIntegration}" draggable="true">
+		<content>
+			<Table id="categoryIntegrationList"
+				items="{path: 'integrateList>/'}" mode="MultiSelect"
+				showNoData="true" sticky="ColumnHeaders"
+				class="sapUiNoMargin sapUiNoContentPadding">
+				<columns class="sapUiNoContentPadding">
+					<Column>
+						<Text text="{i18n>integrationText}" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem selected="{integrateList>selected}">
+						<cells>
+							<HBox>
+								<core:Icon src="{integrateList>icon}"
+									class="sapUiTinyMarginEnd" />
+								<Text text="{integrateList>category}" />
+							</HBox>
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<beginButton>
+			<Button id="integrationId" text="{i18n>integrateButtonText}"
+				press="onPressIntControl" />
+		</beginButton>
+		<endButton>
+			<Button id="cancelIntegration" text="{i18n>cancel}"
+				press="handleCloseIntegrate" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>

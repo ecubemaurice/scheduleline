@@ -1,0 +1,272 @@
+{
+    "d": {
+        "results": [
+            {
+                "__metadata": {
+                    "id": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='4863',EmployeeNo='07000039')",
+                    "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='4863',EmployeeNo='07000039')",
+                    "type": "ZPSGW00549_ZCPJD1_SRV.Labor"
+                },
+                "ProjectNo": "9730.160001",
+                "Day": "/Date(1469232000000)/",
+                "InternalNo": "4863",
+                "FlagLocked": false,
+                "FlagInt": true,
+                "EmployeeNo": "07000039",
+                "EmployeeName": "ALEXIS RENAUD",
+                "Price": "15.00",
+                "Currency": "CAD",
+                "Mu": "MU9730",
+                "MuName": "REGINA BYPASS DESIGN BUILDERS WO",
+                "ActivityType": "L1031",
+                "Ccq": "",
+                "Rule": "",
+                "WorkTimeBeg": "PT00H00M00S",
+                "WorkTimeEnd": "PT00H00M00S",
+                "BreakTimeBeg": "PT00H00M00S",
+                "BreakTimeEnd": "PT00H00M00S",
+                "TotalCost": "120.00",
+                "TotalDayQty": "0.000",
+                "Unit": "DAY",
+                "CostCode": "000001",
+                "IntStatus": "2",
+                "Origin": "M",
+                "ForemanNo": "07000039",
+                "Version": "00",
+                "LaborToDet": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='4863',EmployeeNo='07000039')/LaborToDet"
+                    }
+                }
+            },
+            {
+                "__metadata": {
+                    "id": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5354',EmployeeNo='07000040')",
+                    "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5354',EmployeeNo='07000040')",
+                    "type": "ZPSGW00549_ZCPJD1_SRV.Labor"
+                },
+                "ProjectNo": "9730.160001",
+                "Day": "/Date(1469232000000)/",
+                "InternalNo": "5354",
+                "FlagLocked": false,
+                "FlagInt": false,
+                "EmployeeNo": "07000040",
+                "EmployeeName": "ALEXIS RENAUD",
+                "Price": "10.00",
+                "Currency": "CAD",
+                "Mu": "MU9730",
+                "MuName": "BBBB",
+                "ActivityType": "L1031",
+                "Ccq": "",
+                "Rule": "",
+                "WorkTimeBeg": "PT00H00M00S",
+                "WorkTimeEnd": "PT00H00M00S",
+                "BreakTimeBeg": "PT00H00M00S",
+                "BreakTimeEnd": "PT00H00M00S",
+                "TotalCost": "20.00",
+                "TotalDayQty": "0.000",
+                "Unit": "DAY",
+                "CostCode": "000001",
+                "IntStatus": "1",
+                "Origin": "M",
+                "ForemanNo": "10000024",
+                "Version": "00",
+                "LaborToDet": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5354',EmployeeNo='07000040')/LaborToDet"
+                    }
+                }
+            },
+            {
+                "__metadata": {
+                    "id": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5352',EmployeeNo='07000040')",
+                    "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5352',EmployeeNo='07000040')",
+                    "type": "ZPSGW00549_ZCPJD1_SRV.Labor"
+                },
+                "ProjectNo": "9730.160001",
+                "Day": "/Date(1469232000000)/",
+                "InternalNo": "5352",
+                "FlagLocked": false,
+                "FlagInt": false,
+                "EmployeeNo": "07000040",
+                "EmployeeName": "ALEXIS RENAUD ABC1",
+                "Price": "20.00",
+                "Currency": "CAD",
+                "Mu": "MU9730",
+                "MuName": "BBBB",
+                "ActivityType": "L1031",
+                "Ccq": "",
+                "Rule": "",
+                "WorkTimeBeg": "PT00H00M00S",
+                "WorkTimeEnd": "PT00H00M00S",
+                "BreakTimeBeg": "PT00H00M00S",
+                "BreakTimeEnd": "PT00H00M00S",
+                "TotalCost": "20.00",
+                "TotalDayQty": "0.000",
+                "Unit": "DAY",
+                "CostCode": "000001",
+                "IntStatus": "1",
+                "Origin": "M",
+                "ForemanNo": "10102348",
+                "Version": "00",
+                "LaborToDet": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5352',EmployeeNo='07000040')/LaborToDet"
+                    }
+                }
+            },
+            {
+                "__metadata": {
+                    "id": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5350',EmployeeNo='07000040')",
+                    "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5350',EmployeeNo='07000040')",
+                    "type": "ZPSGW00549_ZCPJD1_SRV.Labor"
+                },
+                "ProjectNo": "9730.160001",
+                "Day": "/Date(1469232000000)/",
+                "InternalNo": "5350",
+                "FlagLocked": false,
+                "FlagInt": false,
+                "EmployeeNo": "07000040",
+                "EmployeeName": "ALEXIS RENAUD",
+                "Price": "30.00",
+                "Currency": "CAD",
+                "Mu": "MU9730",
+                "MuName": "BBBB",
+                "ActivityType": "L1031",
+                "Ccq": "",
+                "Rule": "",
+                "WorkTimeBeg": "PT08H00M00S",
+                "WorkTimeEnd": "PT17H00M00S",
+                "BreakTimeBeg": "PT12H00M00S",
+                "BreakTimeEnd": "PT13H00M00S",
+                "TotalCost": "30.00",
+                "TotalDayQty": "0.000",
+                "Unit": "DAY",
+                "CostCode": "000001",
+                "IntStatus": "1",
+                "Origin": "M",
+                "ForemanNo": "10000012",
+                "Version": "00",
+                "LaborToDet": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5350',EmployeeNo='07000040')/LaborToDet"
+                    }
+                }
+            },
+            {
+                "__metadata": {
+                    "id": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5359',EmployeeNo='10000012')",
+                    "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5359',EmployeeNo='10000012')",
+                    "type": "ZPSGW00549_ZCPJD1_SRV.Labor"
+                },
+                "ProjectNo": "9730.160001",
+                "Day": "/Date(1469232000000)/",
+                "InternalNo": "5359",
+                "FlagLocked": false,
+                "FlagInt": false,
+                "EmployeeNo": "10000012",
+                "EmployeeName": "TEST1 TEST2",
+                "Price": "12.00",
+                "Currency": "CAD",
+                "Mu": "MU6072",
+                "MuName": "WO ECP WORKS",
+                "ActivityType": "L1031",
+                "Ccq": "",
+                "Rule": "",
+                "WorkTimeBeg": "PT00H00M00S",
+                "WorkTimeEnd": "PT00H00M00S",
+                "BreakTimeBeg": "PT00H00M00S",
+                "BreakTimeEnd": "PT00H00M00S",
+                "TotalCost": "24.00",
+                "TotalDayQty": "0.000",
+                "Unit": "DAY",
+                "CostCode": "000001",
+                "IntStatus": "1",
+                "Origin": "M",
+                "ForemanNo": "10000015",
+                "Version": "00",
+                "LaborToDet": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5359',EmployeeNo='10000012')/LaborToDet"
+                    }
+                }
+            },
+            {
+                "__metadata": {
+                    "id": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5359',EmployeeNo='10000012')",
+                    "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5359',EmployeeNo='10000012')",
+                    "type": "ZPSGW00549_ZCPJD1_SRV.Labor"
+                },
+                "ProjectNo": "9730.160001",
+                "Day": "/Date(1469232000000)/",
+                "InternalNo": "5359",
+                "FlagLocked": false,
+                "FlagInt": false,
+                "EmployeeNo": "10000012",
+                "EmployeeName": "TEST1 TEST2",
+                "Price": "12.00",
+                "Currency": "CAD",
+                "Mu": "MU9730",
+                "MuName": "BBBB",
+                "ActivityType": "L1031",
+                "Ccq": "",
+                "Rule": "",
+                "WorkTimeBeg": "PT00H00M00S",
+                "WorkTimeEnd": "PT00H00M00S",
+                "BreakTimeBeg": "PT00H00M00S",
+                "BreakTimeEnd": "PT00H00M00S",
+                "TotalCost": "12.00",
+                "TotalDayQty": "0.000",
+                "Unit": "DAY",
+                "CostCode": "000001",
+                "IntStatus": "1",
+                "Origin": "M",
+                "ForemanNo": "10000015",
+                "Version": "00",
+                "LaborToDet": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5359',EmployeeNo='10000012')/LaborToDet"
+                    }
+                }
+            },
+            {
+                "__metadata": {
+                    "id": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5353',EmployeeNo='10001107')",
+                    "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5353',EmployeeNo='10001107')",
+                    "type": "ZPSGW00549_ZCPJD1_SRV.Labor"
+                },
+                "ProjectNo": "9730.160001",
+                "Day": "/Date(1469232000000)/",
+                "InternalNo": "5353",
+                "FlagLocked": false,
+                "FlagInt": false,
+                "EmployeeNo": "10001107",
+                "EmployeeName": "ATBBEHA ARAYA",
+                "Price": "100.00",
+                "Currency": "CAD",
+                "Mu": "MU6011",
+                "MuName": "WO ORLANDO CONSTRUCTION",
+                "ActivityType": "US0049",
+                "Ccq": "",
+                "Rule": "",
+                "WorkTimeBeg": "PT00H00M00S",
+                "WorkTimeEnd": "PT06H00M00S",
+                "BreakTimeBeg": "PT00H00M00S",
+                "BreakTimeEnd": "PT00H00M00S",
+                "TotalCost": "600.00",
+                "TotalDayQty": "0.000",
+                "Unit": "HR",
+                "CostCode": "000001",
+                "IntStatus": "1",
+                "Origin": "M",
+                "ForemanNo": "10000019",
+                "Version": "00",
+                "LaborToDet": {
+                    "__deferred": {
+                        "uri": "http://sapdevfior01.kherty.local:8000/sap/opu/odata/sap/ZPSGW00549_ZCPJD1_SRV/LaborSet(ProjectNo='9730.160001',Day=datetime'2016-07-23T00%3A00%3A00',InternalNo='5353',EmployeeNo='10001107')/LaborToDet"
+                    }
+                }
+            }
+        ]
+    }
+}

@@ -1,0 +1,228 @@
+<!--======================================================================-->
+<!--==  E~CUBE                                                          ==-->
+<!--==******************************************************************==-->
+<!--==  AUTHOR             : Jean-Pierre Jerome (JPJ)                   ==-->
+<!--==  DATE               : 13.08.2019                                 ==-->
+<!--==  GAPID              : G01.001.05                                 ==-->
+<!--==******************************************************************==-->
+<!--==  DESCRIPTION        : SR 622921 – A FIORI front end app for      ==-->
+<!--==                       labor, temporary workers, equipment,       ==-->
+<!--==                       equipments, supplies, subcontracting,      ==-->
+<!--==                       production quantities                      ==-->
+<!--==                       COPY of ZCPJD1 – DEV 00549 from KHEOPS     ==-->
+<!--======================================================================-->
+<!--== MODIFICATIONS  HISTORY                                           ==-->
+<!--======================================================================-->
+<!--== DATE        AUTHOR         SR NUM       IDEN.   TRANS. REQ       ==-->
+<!--==******************************************************************==-->
+<!--   23.08.2019  JPJEROME       622921       JPJ      TR XXXXXXXXXX     -->
+<!--======================================================================-->
+<mvc:View
+	controllerName="zwo.ui.wks_rep.controller.quantity.QuantityDet"
+	xmlns="sap.m" xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:t="sap.m.table" xmlns:l="sap.ui.layout"
+	busy="{QuantityDetView>/busy}"
+	busyIndicatorDelay="{QuantityDetView>/BusyDelay}">
+	<Page id="quantitydet"
+		class="detailHeader sapUiNoMargin sapUiNoContentPadding"
+		enableScrolling="true">
+		<content>
+			<Panel id="quantityHeaderPnl" class="quantityDetails">
+				<Toolbar height="auto" class="quantityDetHeader">
+					<VBox width="200px" class="sapUiSmallMarginBegin">
+						<Text text="{CostCodeDes}" class="myMasterBigFont" />
+						<Text text="{CostCode}" class="myMasterSmallFont" />
+					</VBox>
+					<ToolbarSpacer></ToolbarSpacer>
+					<VBox width="200px" class="sapUiSmallMarginEnd sapUiNoMargin"
+						alignItems="End">
+						<Button icon="sap-icon://edit" press="onPressQuantityEdit"
+							type="Transparent"
+							enabled="{path:'IntStatus', formatter: '.formatter.enableMasterEditBtn'}"
+							tooltip="{i18n>edit}" />
+						<HBox>
+							<Text
+								text="{parts: [{path: 'TotQuantity'}, {path: 'Unit'}], 
+							formatter:'.formatter.setEmptyUnit'}"
+								class="myMasterBigFont" />
+						</HBox>
+						<Text text="{i18n>totalQuantity}" class="myMasterMediumFont" />
+					</VBox>
+				</Toolbar>
+<!--              SR 551175- JPJ - 15/11/2018  -->
+<!-- 			START -->
+				<Toolbar height="auto" class="sapUiSmallMarginTop">
+					<VBox class="sapUiSmallMarginBegin">
+						<Text text="{i18n>budgetQty}" />
+						<Text text="{BudjetCumul}" />
+					</VBox>
+					<ToolbarSpacer></ToolbarSpacer>
+					<VBox class="sapUiSmallMarginEnd sapUiNoPadding">
+						<Text text="{i18n>cumulativeQty}" />
+						<Text text="{CumulQuan}" />
+					</VBox>
+				</Toolbar> 
+<!--              SR 551175- JPJ - 15/11/2018  -->
+			</Panel>
+			<Panel height="425px" class="detailIconTab">
+				<IconTabBar id="idQuantityDetIconTabBar"
+					stretchContentHeight="true" headerMode="Inline" expandable="false"
+					class="sapUiResponsiveContentPadding sapUiTinyMarginTop">
+					<items>
+						<IconTabFilter id="icnTabDetails"
+							key="{i18n>tabGeneral}" text="{i18n>tabGeneral}"
+							class="detailIconTab" count="">
+							<Toolbar>
+								<ToolbarSpacer />
+								<Button id="lockDetBtn" icon="sap-icon://locked"
+									tooltip="{i18n>lock}" press="onPressQtyCCLock"
+									type="Transparent" />
+								<Button id="cpyDetBtn" icon="sap-icon://copy"
+									tooltip="{i18n>copy}" press="onPressQtyCCCopy"
+									type="Transparent" />
+								<Button id="addDetBtn" icon="sap-icon://add"
+									tooltip="{i18n>add}" press="onPressQtyCCAdd" type="Transparent" />
+								<Button id="delDetBtn" icon="sap-icon://delete"
+									tooltip="{i18n>delete}" press="onPressQtyCCDelete"
+									type="Transparent" />
+								<Button id="editDetBtn" icon="sap-icon://edit"
+									tooltip="{i18n>edit}" press="onPressQtyCCEdit"
+									type="Transparent" />
+							</Toolbar>
+							<ScrollContainer id="tableScroll"
+								class="costCodeTable" height="310px" vertical="true">
+								<Table items="{}" id="costCodeList" height="200px"
+									mode="MultiSelect" selectionChange="onSelectDetItem"
+									showNoData="true"
+									class="sapUiNoMargin sapUiNoContentPadding customTable customDetailsTable">
+									<columns class="sapUiNoContentPadding">
+										<Column width="1rem" />
+										<Column width="8rem" hAlign="Center">
+											<Text text="{i18n>costCode}" />
+										</Column>
+										<Column width="5rem" hAlign="Center">
+											<Text text="{i18n>Qty}" />
+										</Column>
+										<Column width="3rem" hAlign="Center">
+											<Text text="{i18n>origin}" />
+										</Column>
+										<Column width="8rem" hAlign="Center">
+											<Text text="{i18n>recPerson}" />
+										</Column>
+										<Column width="3rem" hAlign="Center">
+											<Text text="{i18n>version}" />
+										</Column>
+										<Column width="3rem" hAlign="Center" />
+									</columns>
+									<items>
+										<ColumnListItem id="detListTemplate"
+											highlight="{ 
+										path: 'IntStatus',
+										formatter: '.formatter.setDetStatus'}">
+											<customData>
+												<core:CustomData key="disabled" value="true"
+													writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+											</customData>
+											<cells>
+												<VBox>
+													<ToggleButton id="flagDetBtn"
+														icon="sap-icon://flag" pressed="{FlagInt}"
+														press="onPressDetFlag" class="myFlagBtn myPressedFlagBtn"
+														type="Transparent"
+														visible="{= ${IntStatus} !== '6' &amp;&amp; ${IntStatus} !== '7'}" />
+													<Button id="lockedDetBtn" icon="sap-icon://locked"
+														class="myLockBtn myPressedLockBtn" press=""
+														type="Transparent"
+														visible="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+												</VBox>
+												<VBox class="customTableText">
+													<Text text="{CostCodeDes}" tooltip="{CostCodeDes}"
+														wrapping="false" class="sapUiTinyMarginTop">
+														<customData>
+															<core:CustomData key="disabled"
+																value="true"
+																writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+														</customData>
+													</Text>
+													<Text text="{CostCode}" class="sapUiTinyMarginBottom">
+														<customData>
+															<core:CustomData key="disabled"
+																value="true"
+																writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+														</customData>
+													</Text>
+												</VBox>
+												<Text text="{QuantityCC} {Unit}" class="customText">
+													<customData>
+														<core:CustomData key="disabled"
+															value="true"
+															writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+													</customData>
+												</Text>
+												<VBox>
+													<Text text="{Origin}" class="customText"
+														visible="{= ${Origin} === 'M'}" />
+													<customData>
+														<core:CustomData key="disabled"
+															value="true"
+															writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+													</customData>
+													<Link text="{Origin}" class="customLink"
+														press="onPressPapyrusSummary"
+														visible="{= ${Origin} === 'P'}">
+														<customData>
+															<core:CustomData key="disabled"
+																value="true"
+																writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+														</customData>
+													</Link>
+												</VBox>
+												<VBox class="customTableText">
+													<Text text="{ForemanName}" tooltip="{ForemanName}"
+														wrapping="false" class="sapUiTinyMarginTop">
+														<customData>
+															<core:CustomData key="disabled"
+																value="true"
+																writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+														</customData>
+													</Text>
+													<Text text="{ForemanNo}" class="sapUiTinyMarginBottom">
+														<customData>
+															<core:CustomData key="disabled"
+																value="true"
+																writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+														</customData>
+													</Text>
+												</VBox>
+												<Text text="{Version}" class="customText">
+													<customData>
+														<core:CustomData key="disabled"
+															value="true"
+															writeToDom="{= ${IntStatus} === '6' || ${IntStatus} === '7'}" />
+													</customData>
+												</Text>
+												<HBox justifyContent="End"
+													class="sapUiNoMargin sapUiNoContentPadding">
+													<Button icon="sap-icon://overflow"
+														press="onPressIntPop" type="Transparent"
+														enabled="{= ${IntStatus} !== '0' &amp;&amp; ${IntStatus} !== '1' &amp;&amp; ${IntStatus} !== '6'}"
+														tooltip="{i18n>integration}" />
+													<Button icon="sap-icon://post"
+														press="onPressCommentDialog" type="Transparent"
+														tooltip="{i18n>comment}" class="sapUiNoMargin" />
+													<Text text="*"
+														visible="{= ${FlagComment} === 'X' &amp;&amp; ${Origin} === 'P'}"
+														class="sapUiNoMargin" />
+												</HBox>
+											</cells>
+										</ColumnListItem>
+									</items>
+								</Table>
+							</ScrollContainer>
+						</IconTabFilter>
+					</items>
+				</IconTabBar>
+			</Panel>
+		</content>
+	</Page>
+</mvc:View>

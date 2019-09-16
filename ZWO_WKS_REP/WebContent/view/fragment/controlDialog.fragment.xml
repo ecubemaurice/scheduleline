@@ -1,0 +1,41 @@
+<core:FragmentDefinition xmlns="sap.m"
+	xmlns:core="sap.ui.core">
+	<Dialog id="commentDialog" contentWidth="auto"
+		contentHeight="auto" title="{i18n>controlTitle}" draggable="true"
+		resizable="true">
+		<content>
+			<Table items="{control>/}" id="controlList" mode="None"
+				showNoData="true" class="sapUiNoMargin sapUiNoContentPadding">
+				<headerToolbar>
+					<Toolbar>
+						<Title text="{i18n>controlText}" />
+					</Toolbar>
+				</headerToolbar>
+				<columns class="sapUiNoContentPadding">
+					<Column width="100%" hAlign="Left">
+						<Text text="{i18n>categoryText}" />
+					</Column>
+					<Column width="100%" hAlign="Left">
+						<Text text="{i18n>Type}" />
+					</Column>
+					<Column width="100%" hAlign="Left">
+						<Text text="{i18n>msgText}" />
+					</Column>
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<Text text="{control>Categ}" />
+							<Text text="{control>Type}" />
+							<Text text="{control>Message}" />
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+		</content>
+		<endButton>
+			<Button id="idCloseControl" text="{i18n>close}"
+				press="handleCloseControl" />
+		</endButton>
+	</Dialog>
+</core:FragmentDefinition>
