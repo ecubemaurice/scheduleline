@@ -5,9 +5,9 @@ sap.ui.controller("scheduleline.Test", {
 * Can be used to modify the View before it is displayed, to bind event handlers and do other one-time initialization.
 * @memberOf scheduleline.Test
 */
-//	onInit: function() {
-//
-//	},
+	onInit: function() {
+		console.log("Test");
+	},
 
 /**
 * Similar to onAfterRendering, but this hook is invoked before the controller's View is re-rendered
